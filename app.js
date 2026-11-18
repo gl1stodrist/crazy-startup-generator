@@ -19,22 +19,41 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnConnectWallet = document.getElementById('btn-connect-wallet');
     const walletLabel = document.getElementById('wallet-label');
     const btnAudio = document.getElementById('btn-audio');
-    const btnSettings = document.getElementById('btn-settings');
     const btnFavorites = document.getElementById('btn-favorites');
 
-    // Card Fields
+    // Startup Card Header & General
     const startupName = document.getElementById('startup-name');
     const startupTicker = document.getElementById('startup-ticker');
+    const startupCategory = document.getElementById('startup-category');
     const startupStage = document.getElementById('startup-stage');
     const startupTagline = document.getElementById('startup-tagline');
     const pitchProblem = document.getElementById('pitch-problem');
     const pitchSolution = document.getElementById('pitch-solution');
+    const sourceStamp = document.getElementById('source-stamp');
+
+    // KPI Metrics Tiles
+    const kpiTam = document.getElementById('kpi-tam');
+    const kpiBurn = document.getElementById('kpi-burn');
+    const kpiRunway = document.getElementById('kpi-runway');
+    const kpiUnit = document.getElementById('kpi-unit');
+    const kpiHype = document.getElementById('kpi-hype');
+
+    // SWOT Analysis Elements
+    const swotS = document.getElementById('swot-s');
+    const swotW = document.getElementById('swot-w');
+    const swotO = document.getElementById('swot-o');
+    const swotT = document.getElementById('swot-t');
+
+    // Roadmap & Founders Containers
+    const roadmapContainer = document.getElementById('roadmap-container');
+    const foundersRow = document.getElementById('founders-row');
+
+    // Cap Table & Tags
     const capTableBar = document.getElementById('cap-table-bar');
     const capTableLegend = document.getElementById('cap-table-legend');
     const pitchBackers = document.getElementById('pitch-backers');
     const pitchAudit = document.getElementById('pitch-audit');
     const pitchTags = document.getElementById('pitch-tags');
-    const sourceStamp = document.getElementById('source-stamp');
 
     // Action buttons
     const btnCopyMemo = document.getElementById('btn-copy-memo');
@@ -42,21 +61,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnFav = document.getElementById('btn-fav');
     const btnOpenInvestTop = document.getElementById('btn-open-invest-top');
 
+    // Category Filter Pills
+    const filterPills = document.querySelectorAll('.filter-pill[data-filter]');
+
+    // ROI Simulator Elements
+    const roiSlider = document.getElementById('roi-slider');
+    const roiSliderAmount = document.getElementById('roi-slider-amount');
+    const roiResultPayout = document.getElementById('roi-result-payout');
+    const roiResultPercent = document.getElementById('roi-result-percent');
+    const roiResultPerks = document.getElementById('roi-result-perks');
+
     // Modals
     const modalWallet = document.getElementById('modal-wallet');
     const modalInvest = document.getElementById('modal-invest');
-    const modalSettings = document.getElementById('modal-settings');
     const modalHistory = document.getElementById('modal-history');
 
     // Syndicate Table & Metrics
     const syndicateTableBody = document.getElementById('syndicate-table-body');
     const metricTotalCapital = document.getElementById('metric-total-capital');
     const metricActiveDeals = document.getElementById('metric-active-deals');
-
-    // Settings fields
-    const inputApiKey = document.getElementById('input-api-key');
-    const btnSaveKey = document.getElementById('btn-save-key');
-    const switchBtns = document.querySelectorAll('.loft-switch-btn');
 
     // Invest modal fields
     const qrImage = document.getElementById('qr-image');
@@ -73,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (vaultAddressText) vaultAddressText.textContent = targetAddress;
     if (qrImage) qrImage.src = window.walletService.getQrCodeUrl();
 
-    // 3D Card Tilt Effect
+    // 4. SUBTLE & GENTLE CARD TILT (Reduced drastically as requested)
     if (memorandumWrapper && memorandumCard) {
         memorandumWrapper.addEventListener('mousemove', (e) => {
             const rect = memorandumWrapper.getBoundingClientRect();
@@ -81,22 +104,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const y = e.clientY - rect.top;
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            const rotateX = ((y - centerY) / centerY) * -6;
-            const rotateY = ((x - centerX) / centerX) * 8;
-            memorandumCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            
+            // Ultra-subtle tilt: max +/- 1.2 degrees (no drastic movement)
+            const rotateX = ((y - centerY) / centerY) * -1.2;
+            const rotateY = ((x - centerX) / centerX) * 1.5;
+            memorandumCard.style.transform = `perspective(1600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
 
         memorandumWrapper.addEventListener('mouseleave', () => {
-            memorandumCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
+            memorandumCard.style.transform = 'perspective(1600px) rotateX(0deg) rotateY(0deg)';
         });
     }
 
-    // Audio SFX toggle
+    // 5. Sound SFX Toggle
     if (btnAudio) {
         btnAudio.addEventListener('click', () => {
             const enabled = window.cyberAudio.toggle();
             btnAudio.innerHTML = enabled ? '🔊' : '🔇';
-            showToast(enabled ? 'Звуковые оповещения включены' : 'Звук отключен');
+            showToast(enabled ? 'Звуковые сигналы включены' : 'Звук отключен');
             if (enabled) window.cyberAudio.playClick();
         });
     }
@@ -119,7 +144,35 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 3200);
     }
 
-    // Render Syndicate Table from Database
+    // 6. Interactive ROI Calculator Logic
+    function updateRoiCalculator() {
+        if (!roiSlider) return;
+        const deposit = parseFloat(roiSlider.value) || 10000;
+        roiSliderAmount.textContent = `$${deposit.toLocaleString()} USDT`;
+
+        // Absurd multiplication formula
+        const payout = Math.round(deposit * 14.85);
+        const percent = "+1,385%";
+        roiResultPayout.textContent = `$${payout.toLocaleString()}`;
+        roiResultPercent.textContent = percent;
+
+        // Dynamic perk calculation based on current startup
+        if (currentStartup && currentStartup.name.includes('Pelmeni')) {
+            roiResultPerks.textContent = `${Math.round(deposit * 0.04)} кг пельменей в квартал`;
+        } else if (currentStartup && currentStartup.name.includes('Cat')) {
+            roiResultPerks.textContent = `${Math.round(deposit * 0.002)} котиков для сторис`;
+        } else if (currentStartup && currentStartup.name.includes('Shau')) {
+            roiResultPerks.textContent = `${Math.round(deposit * 0.05)} сырных шаурм в подарок`;
+        } else {
+            roiResultPerks.textContent = `${Math.round(deposit * 0.03)} часов глубокого сна`;
+        }
+    }
+
+    if (roiSlider) {
+        roiSlider.addEventListener('input', updateRoiCalculator);
+    }
+
+    // 7. Render Syndicate Leaderboard Table
     function renderSyndicateLeaderboard() {
         if (!syndicateTableBody) return;
         const investors = window.investorDB.getInvestors();
@@ -142,25 +195,70 @@ document.addEventListener('DOMContentLoaded', () => {
             syndicateTableBody.appendChild(tr);
         });
 
-        // Update top metrics
         const total = window.investorDB.getTotalCapital();
         if (metricTotalCapital) metricTotalCapital.textContent = `$${total.toLocaleString()}`;
         if (metricActiveDeals) metricActiveDeals.textContent = `${investors.length} СИНДИКАТОВ`;
     }
 
-    // Render Startup Data into UI
+    // 8. Render All Startup Data into UI
     function renderStartup(data) {
         currentStartup = data;
 
         startupName.textContent = data.name;
         startupTicker.textContent = data.ticker;
+        if (startupCategory) startupCategory.textContent = data.category || 'Venture Asset';
         startupStage.textContent = data.stage;
         startupTagline.textContent = data.tagline;
         pitchProblem.textContent = data.problem;
         pitchSolution.textContent = data.solution;
         pitchBackers.textContent = data.backers;
         pitchAudit.textContent = data.audit;
-        sourceStamp.textContent = `СТАТУС: ${data.source}`;
+
+        // KPI Tiles
+        if (data.metrics) {
+            kpiTam.textContent = data.metrics.tam;
+            kpiBurn.textContent = data.metrics.burnRate;
+            kpiRunway.textContent = data.metrics.runway;
+            kpiUnit.textContent = data.metrics.unitEconomics;
+            kpiHype.textContent = data.metrics.hypeIndex;
+        }
+
+        // SWOT Matrix
+        if (data.swot) {
+            swotS.textContent = data.swot.strengths;
+            swotW.textContent = data.swot.weaknesses;
+            swotO.textContent = data.swot.opportunities;
+            swotT.textContent = data.swot.threats;
+        }
+
+        // Roadmap Milestones
+        if (roadmapContainer && Array.isArray(data.roadmap)) {
+            roadmapContainer.innerHTML = '';
+            data.roadmap.forEach(step => {
+                const box = document.createElement('div');
+                box.className = 'roadmap-step';
+                box.innerHTML = `
+                    <div class="roadmap-step-period">${step.period} // ЭТАП</div>
+                    <div class="roadmap-step-text">${step.task}</div>
+                `;
+                roadmapContainer.appendChild(box);
+            });
+        }
+
+        // Founders & Management
+        if (foundersRow && Array.isArray(data.team)) {
+            foundersRow.innerHTML = '';
+            data.team.forEach(m => {
+                const card = document.createElement('div');
+                card.className = 'founder-card';
+                card.innerHTML = `
+                    <div class="founder-role">${m.role}</div>
+                    <div class="founder-name">${m.name}</div>
+                    <div class="founder-bio">${m.bio}</div>
+                `;
+                foundersRow.appendChild(card);
+            });
+        }
 
         // Cap Table Progress Bar
         capTableBar.innerHTML = '';
@@ -200,9 +298,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         updateFavButton();
+        updateRoiCalculator();
     }
 
-    // Generate Action
+    // 9. Generate Action
     async function handleGenerate() {
         if (isGenerating) return;
         isGenerating = true;
@@ -212,16 +311,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         btnGenerate.disabled = true;
         btnGenerate.innerHTML = '<span>⏳ АНАЛИЗ ИНВЕСТИЦИОННОЙ МОДЕЛИ...</span>';
-        memorandumCard.style.opacity = '0.5';
+        memorandumCard.style.opacity = '0.6';
 
         try {
-            const data = await window.startupGenerator.generate();
+            const data = window.startupGenerator.generate();
             renderStartup(data);
             window.cyberAudio.playSuccess();
         } catch (err) {
             console.error(err);
-            const fallback = window.startupGenerator.generateQuantum();
-            renderStartup(fallback);
         } finally {
             memorandumCard.style.opacity = '1';
             btnGenerate.disabled = false;
@@ -232,15 +329,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnGenerate.addEventListener('click', handleGenerate);
 
-    // Switch buttons (Quantum vs Neural)
-    switchBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            switchBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            const mode = btn.dataset.mode;
-            window.startupGenerator.setMode(mode);
+    // Category Filter Pills
+    filterPills.forEach(pill => {
+        pill.addEventListener('click', () => {
+            filterPills.forEach(p => p.classList.remove('active'));
+            pill.classList.add('active');
+            const category = pill.dataset.filter;
+            window.startupGenerator.setFilter(category);
             window.cyberAudio.playClick();
-            showToast(`Активирован: ${mode === 'neural' ? 'Нейросеть Gemini 2.5' : 'Квантовый модуль'}`);
+            handleGenerate();
         });
     });
 
@@ -252,24 +349,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const memoText = `ИНВЕСТИЦИОННЫЙ МЕМОРАНДУМ [КОНФИДЕНЦИАЛЬНО]
 СИНДИКАТ: ${currentStartup.name} (${currentStartup.ticker})
+КАТЕГОРИЯ: ${currentStartup.category}
 ОЦЕНКА: ${currentStartup.stage}
 
 ТЕЗИС:
 ${currentStartup.tagline}
 
-ПРОБЛЕМА:
+ПРОБЛЕМА РЫНКА:
 ${currentStartup.problem}
 
 РЕШЕНИЕ:
 ${currentStartup.solution}
 
-СТРУКТУРА КАПИТАЛА:
-${currentStartup.tokenomics ? currentStartup.tokenomics.map(t => `• ${t.percent}% — ${t.label}`).join('\n') : ''}
+ОСНОВНЫЕ МЕТРИКИ:
+• TAM: ${currentStartup.metrics ? currentStartup.metrics.tam : ''}
+• Burn Rate: ${currentStartup.metrics ? currentStartup.metrics.burnRate : ''}
+• Runway: ${currentStartup.metrics ? currentStartup.metrics.runway : ''}
 
-ВЕДУЩИЕ ИНВЕСТОРЫ: ${currentStartup.backers}
+ВЕДУЩИЕ СИНДИКАТЫ: ${currentStartup.backers}
 АУДИТ БЕЗОПАСНОСТИ: ${currentStartup.audit}
 
-Реквизиты фонда для аллокации (TRON/USDT): TVKNb8MWNfxue3dQJxKB9oXT5h9Y88PYb5
+Официальные реквизиты синдиката (TRON Network USDT/TRX): TVKNb8MWNfxue3dQJxKB9oXT5h9Y88PYb5
 Оформлено через LOFT CAPITAL PARTNERS`;
 
             navigator.clipboard.writeText(memoText).then(() => {
@@ -339,22 +439,22 @@ ${currentStartup.tokenomics ? currentStartup.tokenomics.map(t => `• ${t.percen
             try {
                 showToast('⏳ Инициализация транзакции в TronLink...');
                 const tx = await window.walletService.sendTronTransaction(amount);
-                showToast('🎉 Транзакция отправлена в блокчейн TRON!');
-                if (inputTxHash) inputTxHash.value = tx || 'TronLink-Tx';
+                showToast('🎉 Транзакция отправлена в сеть TRON!');
+                if (inputTxHash) inputTxHash.value = tx || 'TronLink-Confirmed';
             } catch (err) {
-                showToast('TronLink: ' + (err.message || 'Ошибка отправки'));
+                showToast('TronLink: ' + (err.message || 'Ошибка транзакции'));
             }
         });
     }
 
-    // Submit Investment to Database & Leaderboard
+    // Submit Investment to Leaderboard
     if (btnSubmitInvestment) {
         btnSubmitInvestment.addEventListener('click', () => {
             window.cyberAudio.playCash();
             const name = inputInvestorName.value.trim() || 'Инкогнито Инвестор';
             const amount = parseFloat(inputInvestAmount.value) || 5000;
             const txHash = inputTxHash.value.trim();
-            const startup = currentStartup ? currentStartup.name : 'KebabChain 3.0';
+            const startup = currentStartup ? currentStartup.name : 'PelmeniAlert Smart-Pot';
 
             window.investorDB.addInvestment(name, currentAddress || targetAddress, amount, startup, txHash);
             renderSyndicateLeaderboard();
@@ -371,11 +471,11 @@ ${currentStartup.tokenomics ? currentStartup.tokenomics.map(t => `• ${t.percen
                 });
             }
 
-            showToast(`Успешно! ${name} внесен в реестр Топ-Инвесторов на $${amount.toLocaleString()} USDT!`);
+            showToast(`Успешно! ${name} зафиксирован в Реестре Инвесторов на $${amount.toLocaleString()} USDT!`);
         });
     }
 
-    // Connect Wallet Modal & Options
+    // Connect Wallet Modal & Actions
     if (btnConnectWallet) {
         btnConnectWallet.addEventListener('click', () => {
             window.cyberAudio.playClick();
@@ -416,25 +516,6 @@ ${currentStartup.tokenomics ? currentStartup.tokenomics.map(t => `• ${t.percen
             }
         });
     });
-
-    // Settings Modal
-    if (btnSettings) {
-        btnSettings.addEventListener('click', () => {
-            window.cyberAudio.playClick();
-            if (inputApiKey) inputApiKey.value = window.startupGenerator.apiKey || '';
-            openModal(modalSettings);
-        });
-    }
-
-    if (btnSaveKey) {
-        btnSaveKey.addEventListener('click', () => {
-            window.cyberAudio.playClick();
-            const key = inputApiKey.value.trim();
-            window.startupGenerator.setApiKey(key);
-            closeModal(modalSettings);
-            showToast('✅ Ключ Gemini API сохранен в браузере');
-        });
-    }
 
     // Favorites / Portfolio Modal
     if (btnFavorites) {

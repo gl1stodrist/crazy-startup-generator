@@ -25,23 +25,21 @@
         <!-- Confidential Ticker Bar -->
         <div class="ticker-bar">
             <div class="ticker-track">
-                <span class="ticker-item"><span class="sym">$BABKA</span> <span class="val">+420.69%</span></span>
-                <span class="ticker-item"><span class="sym">$KEBAB</span> <span class="val">+133.7%</span></span>
-                <span class="ticker-item"><span class="sym">$SLEEP</span> <span class="val">+69.4%</span></span>
-                <span class="ticker-item"><span class="sym">$PELMEN</span> <span class="val">+322.0%</span></span>
-                <span class="ticker-item"><span class="sym">$DOSHA</span> <span class="val">+888.0%</span></span>
-                <span class="ticker-item"><span class="sym">$DRIST</span> <span class="val">+9999%</span></span>
-                <span class="ticker-item"><span class="sym">$KVAS</span> <span class="val">+228.5%</span></span>
-                <span class="ticker-item"><span class="sym">$BORSCH</span> <span class="val">+144.0%</span></span>
+                <span class="ticker-item"><span class="sym">$PELMEN</span> <span class="val">+420.69%</span></span>
+                <span class="ticker-item"><span class="sym">$SLACK</span> <span class="val">+133.7%</span></span>
+                <span class="ticker-item"><span class="sym">$BABKA</span> <span class="val">+69.4%</span></span>
+                <span class="ticker-item"><span class="sym">$KOTIK</span> <span class="val">+322.0%</span></span>
+                <span class="ticker-item"><span class="sym">$SHAU</span> <span class="val">+888.0%</span></span>
+                <span class="ticker-item"><span class="sym">$SLEEP</span> <span class="val">+9999%</span></span>
+                <span class="ticker-item"><span class="sym">$DOSHA</span> <span class="val">+228.5%</span></span>
                 <!-- Repeat for infinite marquee -->
-                <span class="ticker-item"><span class="sym">$BABKA</span> <span class="val">+420.69%</span></span>
-                <span class="ticker-item"><span class="sym">$KEBAB</span> <span class="val">+133.7%</span></span>
-                <span class="ticker-item"><span class="sym">$SLEEP</span> <span class="val">+69.4%</span></span>
-                <span class="ticker-item"><span class="sym">$PELMEN</span> <span class="val">+322.0%</span></span>
-                <span class="ticker-item"><span class="sym">$DOSHA</span> <span class="val">+888.0%</span></span>
-                <span class="ticker-item"><span class="sym">$DRIST</span> <span class="val">+9999%</span></span>
-                <span class="ticker-item"><span class="sym">$KVAS</span> <span class="val">+228.5%</span></span>
-                <span class="ticker-item"><span class="sym">$BORSCH</span> <span class="val">+144.0%</span></span>
+                <span class="ticker-item"><span class="sym">$PELMEN</span> <span class="val">+420.69%</span></span>
+                <span class="ticker-item"><span class="sym">$SLACK</span> <span class="val">+133.7%</span></span>
+                <span class="ticker-item"><span class="sym">$BABKA</span> <span class="val">+69.4%</span></span>
+                <span class="ticker-item"><span class="sym">$KOTIK</span> <span class="val">+322.0%</span></span>
+                <span class="ticker-item"><span class="sym">$SHAU</span> <span class="val">+888.0%</span></span>
+                <span class="ticker-item"><span class="sym">$SLEEP</span> <span class="val">+9999%</span></span>
+                <span class="ticker-item"><span class="sym">$DOSHA</span> <span class="val">+228.5%</span></span>
             </div>
         </div>
 
@@ -58,7 +56,6 @@
             <div class="nav-actions">
                 <button id="btn-audio" class="btn-loft-icon" title="Звуковые сигналы">🔊</button>
                 <button id="btn-favorites" class="btn-loft-icon" title="Портфель активов">★</button>
-                <button id="btn-settings" class="btn-loft-icon" title="Параметры нейросети">⚙️</button>
                 <button id="btn-connect-wallet" class="btn-connect-wallet">
                     <span class="status-dot"></span>
                     <span id="wallet-label">Подключить кошелек</span>
@@ -71,16 +68,19 @@
             <div class="hero-classification">OFFERING MEMORANDUM // STRICTLY CONFIDENTIAL</div>
             <h2 class="hero-heading">Суверенный Синдикат Инноваций</h2>
             <p class="hero-description">
-                Институциональный аудит и аллокация венчурного капитала в модели с высоким коэффициентом технологического абсурда.
+                Институциональный аудит и аллокация капитала в бытовые, гастрономические, B2B и технологические стартапы с высоким уровнем абсурда.
             </p>
 
-            <!-- Mode Switcher -->
-            <div class="loft-switch">
-                <button class="loft-switch-btn active" data-mode="quantum">Квантовый Модуль</button>
-                <button class="loft-switch-btn" data-mode="neural">Gemini 2.5 Нейросеть</button>
+            <!-- Category Filter Bar -->
+            <div class="category-filter-bar">
+                <button class="filter-pill active" data-filter="all">Все направления</button>
+                <button class="filter-pill" data-filter="FoodTech">FoodTech &amp; Кухня</button>
+                <button class="filter-pill" data-filter="B2B">B2B &amp; Офисный Софт</button>
+                <button class="filter-pill" data-filter="Lifestyle">Lifestyle &amp; Дейтинг</button>
+                <button class="filter-pill" data-filter="DeepTech">DeepTech &amp; Гаджеты</button>
             </div>
 
-            <!-- Primary Action Button -->
+            <!-- Primary Generate Button -->
             <button id="btn-generate" class="btn-loft-primary">
                 СГЕНЕРИРОВАТЬ МЕМОРАНДУМ
             </button>
@@ -90,62 +90,144 @@
                 <article id="memorandum-card" class="memorandum-card">
                     <div class="memorandum-watermark">CONFIDENTIAL // SERIES SEED</div>
 
+                    <!-- Header -->
                     <div class="card-header-loft">
                         <div class="startup-title-block">
-                            <h3 id="startup-name">KebabChain Infrastructure L2</h3>
-                            <span id="startup-ticker" class="ticker-tag">$KEBAB</span>
+                            <h3 id="startup-name">PelmeniAlert Smart-Pot</h3>
+                            <span id="startup-ticker" class="ticker-tag">$PELMEN</span>
+                            <span id="startup-category" class="filter-pill" style="padding: 2px 8px; font-size: 0.7rem; pointer-events: none;">FoodTech &amp; IoT</span>
                         </div>
-                        <span id="startup-stage" class="stage-tag">SERIES SEED: $69,420,000 POST-MONEY</span>
+                        <span id="startup-stage" class="stage-tag">SERIES A: $14,200,000 VALUATION</span>
                     </div>
 
+                    <!-- Thesis Quote -->
                     <p id="startup-tagline" class="memorandum-thesis">
-                        «Институциональная токенизация неэффективных бытовых процессов с математически доказанной нулевой целесообразностью.»
+                        «Умная кастрюля с Push-уведомлениями: Пельмени всплыли, бросай работу и иди есть.»
                     </p>
 
+                    <!-- Executive KPI Metrics Bar -->
+                    <div class="metrics-kpi-bar">
+                        <div class="kpi-tile">
+                            <span class="label">TAM (Рынок)</span>
+                            <span id="kpi-tam" class="value">$8.4B</span>
+                        </div>
+                        <div class="kpi-tile">
+                            <span class="label">Burn Rate</span>
+                            <span id="kpi-burn" class="value">$18,500 / мес</span>
+                        </div>
+                        <div class="kpi-tile">
+                            <span class="label">Runway</span>
+                            <span id="kpi-runway" class="value">14 месяцев</span>
+                        </div>
+                        <div class="kpi-tile">
+                            <span class="label">Unit-Экономика</span>
+                            <span id="kpi-unit" class="value">+42% маржи</span>
+                        </div>
+                        <div class="kpi-tile">
+                            <span class="label">Hype Index</span>
+                            <span id="kpi-hype" class="value" style="color: var(--accent-success);">96.4% КРИТИЧЕСКИЙ</span>
+                        </div>
+                    </div>
+
+                    <!-- Problem & Solution Grid -->
                     <div class="memorandum-grid">
                         <div class="section-box">
                             <div class="section-title">01. Проблема Рынка</div>
                             <p id="pitch-problem" class="section-content">
-                                Традиционная финансовая система Уолл-Стрит не позволяет секьюритизировать права требования на шаурму и гаражи дяди Толи.
+                                Ежегодно россияне переваривают до 840,000 тонн пельменей из-за залипания в мемах и рабочих созвонах.
                             </p>
                         </div>
 
                         <div class="section-box">
                             <div class="section-title">02. Архитектура Решения</div>
                             <p id="pitch-solution" class="section-content">
-                                Внедрение децентрализованного Layer-2 роллапа с валидацией чесночного соуса через ZK-Proof-of-Garlic.
+                                Ультразвуковой датчик всплытия теста с интеграцией в Telegram и сиреной тревоги на кухне.
                             </p>
-                        </div>
-
-                        <div class="section-box full">
-                            <div class="section-title">03. Структура Капитала &amp; Токеномика ($TICKER)</div>
-                            <div id="cap-table-bar" class="cap-table-bar"></div>
-                            <div id="cap-table-legend" class="cap-table-legend"></div>
-                        </div>
-
-                        <div class="section-box">
-                            <div class="section-title">04. Ведущие Синдикаты</div>
-                            <p id="pitch-backers" class="section-content">
-                                Syndicate Alpha Partners &amp; Hamster Ventures
-                            </p>
-                        </div>
-
-                        <div class="section-box">
-                            <div class="section-title">05. Заключение Аудита</div>
-                            <p id="pitch-audit" class="section-content">
-                                100% институциональная уязвимость (CertiK No-Cap Verified)
-                            </p>
-                        </div>
-
-                        <div class="section-box full">
-                            <div class="section-title">06. Категории Сделки</div>
-                            <div id="pitch-tags" class="tags-container"></div>
                         </div>
                     </div>
 
+                    <!-- SWOT Analysis 2x2 Matrix -->
+                    <div class="section-title" style="margin-bottom: 10px;">03. SWOT-Анализ Инвестиционных Рисков</div>
+                    <div class="swot-matrix">
+                        <div class="swot-quadrant swot-s">
+                            <div class="swot-header">
+                                <span class="swot-letter">S</span>
+                                <span>Strengths (Преимущества)</span>
+                            </div>
+                            <p id="swot-s" class="swot-content">Единственный прибор, отличающий пельмень от сосиски.</p>
+                        </div>
+                        <div class="swot-quadrant swot-w">
+                            <div class="swot-header">
+                                <span class="swot-letter">W</span>
+                                <span>Weaknesses (Слабые места)</span>
+                            </div>
+                            <p id="swot-w" class="swot-content">При варке вареников с вишней система уходит в перезагрузку.</p>
+                        </div>
+                        <div class="swot-quadrant swot-o">
+                            <div class="swot-header">
+                                <span class="swot-letter">O</span>
+                                <span>Opportunities (Перспективы)</span>
+                            </div>
+                            <p id="swot-o" class="swot-content">Партнерство с мясокомбинатами и круглосуточными ларьками.</p>
+                        </div>
+                        <div class="swot-quadrant swot-t">
+                            <div class="swot-header">
+                                <span class="swot-letter">T</span>
+                                <span>Threats (Угрозы)</span>
+                            </div>
+                            <p id="swot-t" class="swot-content">Бабушка фаундера утверждает, что чувствует всплытие сердцем.</p>
+                        </div>
+                    </div>
+
+                    <!-- Roadmap Milestones -->
+                    <div class="section-box full" style="margin-bottom: 24px;">
+                        <div class="section-title">04. Дорожная Карта Синдиката (Roadmap)</div>
+                        <div id="roadmap-container" class="roadmap-container">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Founders & Team -->
+                    <div class="section-box full" style="margin-bottom: 24px;">
+                        <div class="section-title">05. Ключевой Менеджмент &amp; Основатели</div>
+                        <div id="founders-row" class="founders-row">
+                            <!-- Populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Cap Table / Tokenomics -->
+                    <div class="section-box full" style="margin-bottom: 24px;">
+                        <div class="section-title">06. Структура Капитала &amp; Аллокация ($TICKER)</div>
+                        <div id="cap-table-bar" class="cap-table-bar"></div>
+                        <div id="cap-table-legend" class="cap-table-legend"></div>
+                    </div>
+
+                    <!-- Backers & Audit -->
+                    <div class="memorandum-grid" style="margin-bottom: 20px;">
+                        <div class="section-box">
+                            <div class="section-title">07. Ведущие Синдикаты</div>
+                            <p id="pitch-backers" class="section-content">
+                                Доширак Capital &amp; Ассоциация Студентов Заочников
+                            </p>
+                        </div>
+                        <div class="section-box">
+                            <div class="section-title">08. Заключение Аудита</div>
+                            <p id="pitch-audit" class="section-content">
+                                🛡️ Протестировано в общежитии: 0 сгоревших кухонь за семестр
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Tags -->
+                    <div class="section-box full" style="margin-bottom: 20px;">
+                        <div class="section-title">09. Классификация Сделки</div>
+                        <div id="pitch-tags" class="tags-container"></div>
+                    </div>
+
+                    <!-- Action Footer -->
                     <div class="card-footer-loft">
                         <div id="source-stamp" class="source-stamp">
-                            СТАТУС: Квантовый Аналитический Модуль
+                            СТАТУС: Аналитический Модуль Синдиката
                         </div>
                         <div class="footer-actions">
                             <button id="btn-fav" class="btn-loft-secondary">☆ В портфель</button>
@@ -155,6 +237,35 @@
                     </div>
                 </article>
             </div>
+
+            <!-- Interactive ROI Calculator Widget -->
+            <section class="roi-calculator-section">
+                <div class="roi-header">
+                    <div class="roi-title">Интерактивный Калькулятор Доходности Синдиката</div>
+                    <span class="badge-verified">PROPRIETARY ALGO</span>
+                </div>
+                <div class="roi-slider-container">
+                    <div class="roi-slider-row">
+                        <span>Сумма депозита в синдикат:</span>
+                        <strong id="roi-slider-amount" style="color: var(--accent-bronze); font-size: 1rem;">$10,000 USDT</strong>
+                    </div>
+                    <input id="roi-slider" type="range" class="roi-slider" min="1000" max="100000" step="1000" value="10000">
+                </div>
+                <div class="roi-output-grid">
+                    <div class="roi-output-item">
+                        <span class="roi-output-label">Прогнозируемый возврат (5 лет)</span>
+                        <span id="roi-result-payout" class="roi-output-value">$148,500</span>
+                    </div>
+                    <div class="roi-output-item">
+                        <span class="roi-output-label">Ожидаемый ROI</span>
+                        <span id="roi-result-percent" class="roi-output-value">+1,385%</span>
+                    </div>
+                    <div class="roi-output-item">
+                        <span class="roi-output-label">Натуральные Дивиденды</span>
+                        <span id="roi-result-perks" class="roi-output-value" style="color: var(--accent-bronze); font-size: 0.88rem;">240 кг продукции в квартал</span>
+                    </div>
+                </div>
+            </section>
 
             <!-- Syndicate Top Investors Leaderboard -->
             <section class="syndicate-section">
@@ -187,7 +298,7 @@
                             </tr>
                         </thead>
                         <tbody id="syndicate-table-body">
-                            <!-- Populated dynamically from InvestorDatabase -->
+                            <!-- Populated dynamically -->
                         </tbody>
                     </table>
                 </div>
@@ -312,26 +423,6 @@
                     Зафиксировать в Реестре Инвесторов
                 </button>
             </div>
-        </div>
-    </div>
-
-    <!-- Gemini AI Settings Modal -->
-    <div id="modal-settings" class="loft-modal-backdrop">
-        <div class="loft-modal-card">
-            <div class="modal-header-loft">
-                <h3 class="modal-title-loft">Параметры Нейросети</h3>
-                <button class="btn-close-loft">&times;</button>
-            </div>
-            <div class="form-group-loft">
-                <label for="input-api-key">Ключ Google Gemini 2.5 API:</label>
-                <input id="input-api-key" type="password" class="input-loft" placeholder="AQ.Ab... или AIza...">
-            </div>
-            <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 18px;">
-                🔒 Ключ сохраняется строго локально в хранилище вашего браузера (LocalStorage) и не передается третьим лицам.
-            </p>
-            <button id="btn-save-key" class="btn-loft-primary" style="width: 100%; margin-bottom: 0;">
-                Сохранить Настройки
-            </button>
         </div>
     </div>
 

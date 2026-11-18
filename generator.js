@@ -1,220 +1,279 @@
-// Loft Venture Syndicate - Confidential Investment Memo Generator
-// Supports both Quantum Core (Offline) and Gemini 2.5 Flash (Online)
+// Comprehensive Multi-Industry Absurd Startup Generator
+// Covers: Everyday Life, Hardware Gadgets, B2B SaaS, FoodTech, Dating/Social, DeepTech, RWA
 
-const LOFT_SYNDICATE_DATA = {
-    names: [
-        { prefix: "Solana", root: "Babka", suffix: "Consortium" },
-        { prefix: "KebabChain", root: "Infrastructure", suffix: "L2" },
-        { prefix: "ProofOfSleep", root: "Protocol", suffix: "Capital" },
-        { prefix: "ZkPelmeni", root: "Fabric", suffix: "Network" },
-        { prefix: "Grandma", root: "Arbitrage", suffix: "Syndicate" },
-        { prefix: "Doshirak", root: "Yield", suffix: "Optimizer" },
-        { prefix: "Borsch", root: "Rollup", suffix: "Core" },
-        { prefix: "NeuroDrist", root: "Intelligence", suffix: "Ventures" },
-        { prefix: "AlcoOracle", root: "DePIN", suffix: "Global" },
-        { prefix: "GigaChad", root: "Staking", suffix: "Institutional" },
-        { prefix: "Lada", root: "Metaverse", suffix: "Securities" },
-        { prefix: "CryptoKvas", root: "Liquidity", suffix: "Fund" },
-        { prefix: "PivkoSwap", root: "Prime", suffix: "Brokerage" },
-        { prefix: "Banya", root: "Consensus", suffix: "Group" },
-        { prefix: "CatNip", root: "Hyperdrive", suffix: "Holdings" }
-    ],
-    tickers: [
-        "$BABKA", "$KEBAB", "$SLEEP", "$PELMEN", "$DOSHA", "$BORSCH",
-        "$DRIST", "$KVAS", "$PIVKO", "$CHAD", "$LADA", "$BANYA", "$HYPE"
-    ],
-    stages: [
-        "SERIES SEED: $69,420,000 POST-MONEY VALUATION",
-        "SERIES A: $420,000,000 (LEAD: ANDREESSEN HOROWITZ’S HAMSTER)",
-        "GROWTH ROUND: $1,000,000,000 (CONFIDENTIAL CONSORTIUM)",
-        "INSTITUTIONAL SYNDICATE: $13,370,000 ALLOCATION",
-        "MEZZANINE PRE-IPO: $888,000,000 EVALUATION"
-    ],
-    taglines: [
-        "«Институциональная токенизация неэффективных бытовых процессов с математически доказанной нулевой целесообразностью.»",
-        "«Интеграция бабушек у подъезда в децентрализованный ончейн-консилиум с правом вето и консенсусом Proof-of-Bench.»",
-        "«Монетизация фаз глубокого сна и храпа через децентрализованный ликвидный стейкинг токенов $SLEEP.»",
-        "«Первый суверенный DePIN-протокол для верификации чесночного соуса без раскрытия формулы (ZK-Proof-of-Garlic).»",
-        "«Перенос прав владения гаражами в кооперативе 'Заря' в динамические RWA-активы на Layer-3.»",
-        "«Алгоритмический AI-сомелье для быстрорастворимой лапши с автоматическим ребалансированием специй на DEX.»",
-        "«Секьюритизация панических атак студентов перед защитой диплома в высокорисковые синтетические деривативы.»"
-    ],
-    problems: [
-        "Традиционный венчурный капитал не позволяет заложить гараж дяди Толи под залог смарт-контракта на шаурму в рамках Базель III.",
-        "Человеческий капитал теряет свыше 2,800 часов в год во время сна, не обеспечивая при этом институциональную доходность в пулах ликвидности.",
-        "Социальный капитал бабушек у подъезда не монетизируется, несмотря на 99.8% точность устного предиктивного анализа прохожих.",
-        "Рынок уличного питания объемом $40B страдает от отсутствия криптографического ZK-аудита происхождения мясных субпродуктов.",
-        "Студенты старших курсов испытывают экзистенциальный кризис в изоляции от распределенных реестров и глобального кредитования."
-    ],
-    solutions: [
-        "Развертывание суверенного Layer-2 роллапа с консенсусом Proof-of-Kvas и мгновенным клирингом бытовых транзакций.",
-        "Внедрение протокола ZK-Proof-of-Garlic для ончейн-верификации качества соуса Ашота с нулевым разглашением рецептуры.",
-        "Стейкинг биометрических колебаний храпа: автоматический налог на бессонницу и выплата дивидендов держателям пула $SLEEP.",
-        "DePIN-сеть умных лавочек с биометрической идентификацией и автоматическим распределением роялти за сплетни.",
-        "Квантовый валидатор на базе стиральных машин 'Малютка' с частотой 10,000 TPS (Transactions Per Second)."
-    ],
-    tokenomics: [
-        [
-            { label: "Основателям синдиката (активы в Дубае)", percent: 65 },
-            { label: "Институциональный маркетинг и лоббирование", percent: 20 },
-            { label: "Резервный фонд на споры с регуляторами", percent: 14 },
-            { label: "Публичный аирдроп розничным инвесторам (вестинг 99 лет)", percent: 1 }
+const STARTUP_DATABASE = [
+    {
+        name: "PelmeniAlert Smart-Pot",
+        ticker: "$PELMEN",
+        category: "FoodTech & IoT",
+        stage: "SERIES A: $14,200,000 VALUATION",
+        tagline: "«Умная кастрюля с Push-уведомлениями: Пельмени всплыли, бросай работу и иди есть.»",
+        problem: "Ежегодно россияне переваривают до 840,000 тонн пельменей из-за залипания в мемах и рабочих созвонах.",
+        solution: "Ультразвуковой датчик всплытия теста с интеграцией в Telegram и сиреной противовоздушной обороны на кухне.",
+        metrics: {
+            tam: "$8.4B (Рынок голодных холостяков)",
+            burnRate: "$18,500 / мес (на закупку майонеза)",
+            runway: "14 месяцев до развода с инвестором",
+            unitEconomics: "+42% маржи с каждого лаврового листа",
+            hypeIndex: "96.4% КРИТИЧЕСКИЙ ХАЙП"
+        },
+        swot: {
+            strengths: "Единственный прибор в мире, отличающий всплытие пельменя от закипания сосиски.",
+            weaknesses: "При попытке сварить вареники с вишней система уходит в бесконечную перезагрузку.",
+            opportunities: "Партнерство с Останкинским мясокомбинатом и сетью круглосуточных ларьков.",
+            threats: "Бабушка фаундера, которая утверждает, что она чувствует всплытие пельменей сердцем."
+        },
+        roadmap: [
+            { period: "Q1", task: "Калибровка датчика на пельменях 'Бульмени' и тестирование сирены." },
+            { period: "Q2", task: "Интеграция с Алисой: голосовой мат при выкипании бульона на плиту." },
+            { period: "Q3", task: "Выход на Wildberries и иск от компании Tefal." },
+            { period: "Q4", task: "IPO на Московской бирже с дивидендами замороженным фаршем." }
         ],
-        [
-            { label: "Пул ликвидности для выкупа шаурмы", percent: 55 },
-            { label: "Команде количественных аналитиков", percent: 25 },
-            { label: "Страховой фонд на случай ликвидации", percent: 15 },
-            { label: "Держателям облигаций $BABKA", percent: 5 }
+        team: [
+            { role: "CEO & Шеф-Повар", name: "Артем Смирнов", bio: "Сварил 10,000 пачек пельменей без соли" },
+            { role: "Hardware Engineer", name: "Дядя Сережа", bio: "Бывший электрик ЖЭК №4, чинит всё синей изолентой" },
+            { role: "Head of AI", name: "ChatGPT-4o", bio: "Обучен на рецептах паблика 'Общажный гурман'" }
         ],
-        [
-            { label: "Инфраструктурный фонд серверов и питания", percent: 50 },
-            { label: "Выплаты юридическим советникам в Женеве", percent: 30 },
-            { label: "Аудит безопасности в закрытом банном клубе", percent: 15 },
-            { label: "Сжигание избыточной массы токенов", percent: 5 }
-        ]
-    ],
-    backers: [
-        "Syndicate Alpha Partners & Hamster Ventures",
-        "Elon Musk Family Office (Confidential Late-Night Retweet)",
-        "Патриаршие Angels Club & Кот Борис Capital",
-        "Фонд Развития Гаражных Инноваций Купчино",
-        "Vitalik Buterin Anime Pillow Memorial DAO",
-        "Geneva Private Wealth & Дед Максим Holdings"
-    ],
-    audits: [
-        "🛡️ Проведен закрытый аудит: 100% институциональная уязвимость (CertiK No-Cap Verified)",
-        "🛡️ Заверен старшим консилиумом подъезда №4: «Надежный инструмент с умеренной волатильностью»",
-        "🛡️ Соответствие стандартам безопасности: Бэкдор сохранен для экстренного вывода ликвидности фаундерами",
-        "🛡️ Сертифицировано швейцарским бюро ScamShield Private: Риск ликвидации 99.9%"
-    ],
-    tags: [
-        ["#Institutional", "#DePIN", "#Layer2", "#RWA", "#ZeroKnowledge"],
-        ["#SyndicateSeed", "#Solana", "#YieldOptimization", "#Arbitrage"],
-        ["#PrivateEquity", "#AutonomousAI", "#Staking", "#HedgeFund"]
-    ]
-};
+        tokenomics: [
+            { label: "Фаундерам на пожизненный запас соусов", percent: 60 },
+            { label: "Тестировщикам и общежитиям МГУ", percent: 25 },
+            { label: "Взятка пожарной инспекции", percent: 15 }
+        ],
+        backers: "Доширак Capital & Ассоциация Студентов Заочников",
+        audit: "🛡️ Протестировано в общежитии: 0 сгоревших кухонь за семестр",
+        tags: ["#IoT", "#FoodTech", "#Hardware", "#Пельмени", "#SmartHome"]
+    },
+    {
+        name: "PretendWork SaaS",
+        ticker: "$SLACK",
+        category: "B2B & Корпоративный Софт",
+        stage: "SEED ROUND: $28,000,000 POST-MONEY",
+        tagline: "«Программный комплекс автоматической симуляции бурной трудовой деятельности в офисе.»",
+        problem: "Сотрудники тратят до 6 часов в день на изображение работы, сильно уставая от дерганья мышки вручную.",
+        solution: "SaaS-система, которая генерирует осмысленные вздохи усталости в микрофон, печатает код и открывает графики при приближении начальника.",
+        metrics: {
+            tam: "$420B (Офисный планктон по всему миру)",
+            burnRate: "$45,000 / мес (на психотерапевта HR-отделу)",
+            runway: "Бесконечный (пока начальник не спалит)",
+            unitEconomics: "ROI 400% за счет сохранения оклада",
+            hypeIndex: "99.1% ВЫСОКИЙ СПРОС"
+        },
+        swot: {
+            strengths: "Встроенный алгоритм глубокого нейронного вздоха «Как же меня всё достало».",
+            weaknesses: "Случайно отправил генеральному директору отчет о разведении хомяков.",
+            opportunities: "Внедрение во все госкорпорации страны на уровне нацпроекта.",
+            threats: "Умные начальники, использующие встречный софт для симуляции контроля."
+        },
+        roadmap: [
+            { period: "Q1", task: "Разработка модуля случайного кликанья по ячейкам Excel." },
+            { period: "Q2", task: "Добавление датчика шагов начальника по звуку скрипа паркета." },
+            { period: "Q3", task: "Интеграция с кофемашиной: авто-налив для создания видимости перерыва." },
+            { period: "Q4", task: "Продажа корпоративной лицензии Газпрому за $10M." }
+        ],
+        team: [
+            { role: "Founder & Прокрастинатор", name: "Илья Кузнецов", bio: "Не открывал рабочую почту с 2021 года" },
+            { role: "VP of Excuses", name: "Ольга Маслова", bio: "Знает 450 причин опоздать на зум-встречу" },
+            { role: "Acoustic Lead", name: "Звукач Паша", bio: "Записал 100 вариантов скрипа офисного кресла" }
+        ],
+        tokenomics: [
+            { label: "Команде на кофе и абонемент в спа", percent: 70 },
+            { label: "Бонусы за неоткрытые таски в Jira", percent: 20 },
+            { label: "Фонд подкупа системного администратора", percent: 10 }
+        ],
+        backers: "AntiWork Syndicate & Reddit Degen Ventures",
+        audit: "🛡️ Проверено службой безопасности: 'Сотрудник года по версии трекера'",
+        tags: ["#B2B", "#SaaS", "#Productivity", "#OfficeLife", "#Corporate"]
+    },
+    {
+        name: "Grandma Bench DePIN",
+        ticker: "$BABKA",
+        category: "DeepTech & Безопасность",
+        stage: "SERIES SEED: $69,420,000 VALUATION",
+        tagline: "«Децентрализованная сеть умных лавочек у подъезда с консенсусом Proof-of-Gossip.»",
+        problem: "Городские камеры видеонаблюдения стоят миллиарды, но не способны определить, кто в подъезде наркоман, а кто проститутка.",
+        solution: "Биометрический апгрейд скамеек с подогревом и интеграцией бабушек в качестве суверенных валидаторов района.",
+        metrics: {
+            tam: "$15B (Рынок городской безопасности)",
+            burnRate: "$8,000 / мес (на семечки и корвалол)",
+            runway: "Вечный (бабушки не выгорают)",
+            unitEconomics: "1 пакет семечек = 12 часов бесперебойного наблюдения",
+            hypeIndex: "98.7% НАРОДНЫЙ ХИТ"
+        },
+        swot: {
+            strengths: "100% распознавание жильцов даже в темных очках и капюшоне со спины.",
+            weaknesses: "С 14:00 до 16:00 система уходит в офлайн на просмотр сериала 'След'.",
+            opportunities: "Экспорт технологии в спальные районы Парижа и Берлина.",
+            threats: "Управляющая компания спилила лавочку по просьбе соседа со 2 этажа."
+        },
+        roadmap: [
+            { period: "Q1", task: "Установка мягких сидений с подогревом на лавочки в Кузьминках." },
+            { period: "Q2", task: "Оцифровка устной базы данных подозрительных личностей." },
+            { period: "Q3", task: "Запуск мобильного приложения 'Одобрено Ниной Ивановной'." },
+            { period: "Q4", task: "Презентация технологии мэру Москвы на ВДНХ." }
+        ],
+        team: [
+            { role: "Chief Security Officer", name: "Клавдия Степановна", bio: "Стаж работы у подъезда — 43 года" },
+            { role: "Network Architect", name: "Внук Максим", bio: "Настроил роутер через телефон соседки" },
+            { role: "Head of PR", name: "Валентина Петровна", bio: "Распространяет инсайды быстрее Reuters" }
+        ],
+        tokenomics: [
+            { label: "Валидаторам 4-го подъезда (пенсионный бонус)", percent: 65 },
+            { label: "Фонд закупки отборных полосатых семечек", percent: 25 },
+            { label: "Ремонт перил и домофона", percent: 10 }
+        ],
+        backers: "ЖЭК №2 Ventures & Совет Ветеранов Кузьминки",
+        audit: "🛡️ Аттестовано участковым: «Ни одна мышь не проскочила»",
+        tags: ["#DePIN", "#SmartCity", "#Security", "#Бабушки", "#Community"]
+    },
+    {
+        name: "Ex-Cat Rental Service",
+        ticker: "$KOTIK",
+        category: "Lifestyle & Дейтинг",
+        stage: "PRE-SEED: $8,500,000 EVALUATION",
+        tagline: "«Краткосрочная аренда породистого пушистого кота для сторис назло бывшим.»",
+        problem: "После расставания людям нечем доказать в соцсетях, что они счастливы, спокойны и завели гармоничную жизнь.",
+        solution: "Курьерская доставка ухоженного мейн-куна на 45 минут для фотосессии с пледом, книгой и бокалом вина.",
+        metrics: {
+            tam: "$3.2B (Разбитые сердца с доступом в Instagram)",
+            burnRate: "$12,000 / мес (на паштет и чесалки)",
+            runway: "18 месяцев устойчивого хейт-маркетинга",
+            unitEconomics: "Рентабельность +310% за каждую завистливую реакцию",
+            hypeIndex: "94.2% СТАБИЛЬНЫЙ ПРИРОСТ"
+        },
+        swot: {
+            strengths: "Кот обучен смотреть в кадр с выражением легкого превосходства.",
+            weaknesses: "Иногда кот засыпает в сумке курьера и отказывается позировать.",
+            opportunities: "Добавление премиум-пакета: 'Кот дерёт обои на фоне фотки бывшего'.",
+            threats: "Клиент привязывается к коту и отказывается возвращать курьеру."
+        },
+        roadmap: [
+            { period: "Q1", task: "Кастинг 50 фотогеничных котов с флегматичным темпераментом." },
+            { period: "Q2", task: "Разработка фильтров освещения для шерсти в приложении." },
+            { period: "Q3", task: "Коллаборация с психологами по расставаниям в TikTok." },
+            { period: "Q4", task: "Запуск сервиса аренды золотых рыбок для статусных парней." }
+        ],
+        team: [
+            { role: "Chief Cat Officer", name: "Кот Барсик", bio: "Мурчит на 4 октавы, 800k подписчиков" },
+            { role: "Head of Psychology", name: "Алена Ветрова", bio: "Специалист по пассивной агрессии в сторис" },
+            { role: "Logistics Lead", name: "Курьер Рустам", bio: "Доставляет кота быстрее, чем пиццу" }
+        ],
+        tokenomics: [
+            { label: "Премиальный корм и ветеринарный спа-салон", percent: 55 },
+            { label: "Компенсации за исцарапанные диваны", percent: 30 },
+            { label: "Основателям на антидепрессанты", percent: 15 }
+        ],
+        backers: "Patriarshie Angels & Whiskas Elite Syndicate",
+        audit: "🛡️ Проверено ветконтролем: 100% шерстяной антистресс",
+        tags: ["#Lifestyle", "#Dating", "#Pets", "#Instagram", "#Services"]
+    },
+    {
+        name: "ShauMaster L2",
+        ticker: "$SHAU",
+        category: "FoodTech & Бытовой Сектор",
+        stage: "SERIES SEED: $22,000,000 EVALUATION",
+        tagline: "«Криптографическая верификация свежести шаурмы по протоколу ZK-Proof-of-Garlic.»",
+        problem: "Потребители шаурмы на вокзале рискуют здоровьем, не имея математического доказательства, что мясо не лаяло вчера.",
+        solution: "Лазерный спектрограф соуса и мяса, выдающий криптографический NFT-сертификат свежести прямо на лаваш.",
+        metrics: {
+            tam: "$35B (Рынок уличной гастрономии РФ и СНГ)",
+            burnRate: "$25,000 / мес (на закупку огурцов и фольги)",
+            runway: "9 месяцев до проверки Роспотребнадзора",
+            unitEconomics: "Маржа 180% на добавлении сырного лаваша",
+            hypeIndex: "97.8% ВИРУСНЫЙ ТРЕНД"
+        },
+        swot: {
+            strengths: "Математически доказанное отсутствие изжоги в 99.4% случаев.",
+            weaknesses: "Мастер Ашот отказывается работать, если сканер сомневается в мясе.",
+            opportunities: "Внедрение во все вокзальные ларьки от Москвы до Владивостока.",
+            threats: "Внезапное подорожание чеснока на оптовой базе."
+        },
+        roadmap: [
+            { period: "Q1", task: "Создание спектральной карты чесночного соуса Ашота." },
+            { period: "Q2", task: "Установка лазерных граверов логотипа на хрустящий лаваш." },
+            { period: "Q3", task: "Интеграция с Яндекс.Едой: фильтр 'Только крипто-шаурма'." },
+            { period: "Q4", task: "Масштабирование на рынок чебуреков и беляшей." }
+        ],
+        team: [
+            { role: "Chief Gastronomist", name: "Ашот Вартанян", bio: "Крутит шаурму за 14 секунд с закрытыми глазами" },
+            { role: "Spectroscopy Lead", name: "Кандидат физ-мат наук Игорь", bio: "Определяет свежесть курицы по длине волны" },
+            { role: "Quality Assurance", name: "Студент Рома", bio: "Съел 400 вокзальных шаурм и выжил" }
+        ],
+        tokenomics: [
+            { label: "Закупка мраморной говядины и авторского лаваша", percent: 50 },
+            { label: "Бонусы мастерам вертела за скорость скрутки", percent: 35 },
+            { label: "Резерв на медицинские страховки смелых клиентов", percent: 15 }
+        ],
+        backers: "Station Square Capital & Тбилиси Gastro Fund",
+        audit: "🛡️ Аттестовано местной санэпидемстанцией после банкета",
+        tags: ["#FoodTech", "#StreetFood", "#Шаурма", "#QualityControl", "#Hardware"]
+    },
+    {
+        name: "SnoozeCoin Sleep-Staking",
+        ticker: "$SLEEP",
+        category: "DeepTech & Биохакинг",
+        stage: "SERIES A: $55,000,000 VALUATION",
+        tagline: "«Институциональная монетизация фаз храпа и дневного сна через смарт-часы.»",
+        problem: "Человечество тратит 8 часов в сутки на сон абсолютно бесплатно, упуская пассивный доход в пулах ликвидности.",
+        solution: "Биометрический трекер, конвертирующий децибелы храпа и глубину медленного сна в начисление дивидендов.",
+        metrics: {
+            tam: "$90B (Рынок бессонницы и товаров для сна)",
+            burnRate: "$30,000 / мес (на ортопедические подушки)",
+            runway: "24 месяца летаргического сна",
+            unitEconomics: "1 час богатырского храпа = 150 баллов лояльности",
+            hypeIndex: "95.5% УВЕРЕННЫЙ РОСТ"
+        },
+        swot: {
+            strengths: "Люди обожают зарабатывать, буквально ничего не делая в кровати.",
+            weaknesses: "Соседи по комнате подают в суд за ночную шумовую генерацию.",
+            opportunities: "Партнерство с производителями матрасов Askona и берушей.",
+            threats: "Внезапная бессонница фаундеров перед сдачей отчета инвесторам."
+        },
+        roadmap: [
+            { period: "Q1", task: "Алгоритмический фильтр отделения храпа от шума мусоровоза." },
+            { period: "Q2", task: "Выпуск фирменной смарт-пижамы с золотыми электродами." },
+            { period: "Q3", task: "Интеграция с будильником: платное отключение за $5." },
+            { period: "Q4", task: "Выход на рынок США под слоганом 'Sleep Your Way to Wealth'." }
+        ],
+        team: [
+            { role: "Chief Sleep Officer", name: "Михаил Сонин", bio: "Спит по 14 часов в день во имя науки" },
+            { role: "Somnology Director", name: "Доктор Морфей", bio: "Изобрел матрас с эффектом невесомости" },
+            { role: "Noise Analyst", name: "Зинаида Васильевна", bio: "Слышит храп мужа через три железобетонные стены" }
+        ],
+        tokenomics: [
+            { label: "Выплаты активным храпунам в пуле ликвидности", percent: 60 },
+            { label: "Разработка утяжеленных одеял следующего поколения", percent: 25 },
+            { label: "Команде на ромашковый чай и мелатонин", percent: 15 }
+        ],
+        backers: "Insomnia Capital & Swiss Bedding Partners",
+        audit: "🛡️ Проверено НИИ Сомнологии: 'Крепкий сон гарантирован'",
+        tags: ["#BioHacking", "#HealthTech", "#Сон", "#IoT", "#PassiveIncome"]
+    }
+];
 
 class StartupGenerator {
     constructor() {
-        this.currentMode = 'quantum';
-        this.apiKey = localStorage.getItem('gemini_api_key') || '';
-        this.modelName = 'gemini-2.5-flash';
+        this.database = STARTUP_DATABASE;
+        this.currentFilter = 'all'; // 'all', 'FoodTech', 'B2B', 'Lifestyle', 'DeepTech'
     }
 
-    setMode(mode) {
-        this.currentMode = mode;
+    setFilter(filter) {
+        this.currentFilter = filter;
     }
 
-    setApiKey(key) {
-        this.apiKey = key.trim();
-        localStorage.setItem('gemini_api_key', this.apiKey);
+    getFilteredList() {
+        if (this.currentFilter === 'all') return this.database;
+        return this.database.filter(item => 
+            item.category.toLowerCase().includes(this.currentFilter.toLowerCase())
+        );
     }
 
-    getRandom(arr) {
-        return arr[Math.floor(Math.random() * arr.length)];
-    }
+    generate() {
+        const list = this.getFilteredList();
+        const pool = list.length > 0 ? list : this.database;
+        const randomItem = pool[Math.floor(Math.random() * pool.length)];
 
-    generateQuantum() {
-        const nameObj = this.getRandom(LOFT_SYNDICATE_DATA.names);
-        const name = `${nameObj.prefix} ${nameObj.root} ${nameObj.suffix}`;
-        const ticker = this.getRandom(LOFT_SYNDICATE_DATA.tickers);
-        const stage = this.getRandom(LOFT_SYNDICATE_DATA.stages);
-        const tagline = this.getRandom(LOFT_SYNDICATE_DATA.taglines);
-        const problem = this.getRandom(LOFT_SYNDICATE_DATA.problems);
-        const solution = this.getRandom(LOFT_SYNDICATE_DATA.solutions);
-        const tokenomics = this.getRandom(LOFT_SYNDICATE_DATA.tokenomics);
-        const backers = this.getRandom(LOFT_SYNDICATE_DATA.backers);
-        const audit = this.getRandom(LOFT_SYNDICATE_DATA.audits);
-        const tags = this.getRandom(LOFT_SYNDICATE_DATA.tags);
-
-        return {
-            name,
-            ticker,
-            stage,
-            tagline,
-            problem,
-            solution,
-            tokenomics,
-            backers,
-            audit,
-            tags,
-            source: 'Квантовый Аналитический Модуль (Offline)'
-        };
-    }
-
-    async generateNeural() {
-        if (!this.apiKey) {
-            throw new Error('Ключ Gemini API не настроен в хранилище');
-        }
-
-        const prompt = `Ты — старший партнер элитного швейцарского венчурного фонда Loft Capital. 
-Твоя задача: составить ультра-серьезный, деловой, институциональный инвестиционный меморандум для АБСУРДНОГО, смешного Web3/AI стартапа на стыке технологий и российского быта (шаурма, бабушки, гаражи, сон, депрессия, маршрутки).
-Тон: подчеркнуто серьезный, сухой, деловой и пафосный финансовый язык, отчего идея звучит еще смешнее.
-
-Верни СТРОГО валидный JSON без markdown форматирования:
-{
-  "name": "Название стартапа (на английском/суржике с Consortium/L2/Capital)",
-  "ticker": "$ТИКЕР",
-  "stage": "Институциональная оценка (например: SERIES A: $120,000,000 POST-MONEY VALUATION)",
-  "tagline": "«Афористичный деловой слоган в кавычках»",
-  "problem": "Институциональная формулировка абсурдной проблемы (2 предложения на деловом языке)",
-  "solution": "Высокопарное решение на блокчейне, ZK-Rollups и AI (2 предложения)",
-  "tokenomics": [
-    {"label": "Основателям на активы в Дубае", "percent": 65},
-    {"label": "Институциональный маркетинг", "percent": 25},
-    {"label": "Аирдроп розничным участникам", "percent": 10}
-  ],
-  "backers": "Название солидного, но смешного фонда/инвестора",
-  "audit": "Статус аудита на деловом языке",
-  "tags": ["#PrivateEquity", "#Web3", "#Institutional"]
-}`;
-
-        const url = `https://generativelanguage.googleapis.com/v1beta/models/${this.modelName}:generateContent?key=${this.apiKey}`;
-        const controller = new AbortController();
-        const timeoutId = setTimeout(() => controller.abort(), 12000);
-
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                signal: controller.signal,
-                body: JSON.stringify({
-                    contents: [{ parts: [{ text: prompt }] }],
-                    generationConfig: {
-                        temperature: 0.95,
-                        responseMimeType: "application/json"
-                    }
-                })
-            });
-
-            clearTimeout(timeoutId);
-
-            if (!response.ok) {
-                const errText = await response.text();
-                throw new Error(`Gemini API error: ${errText}`);
-            }
-
-            const data = await response.json();
-            const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-            const cleaned = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
-            const parsed = JSON.parse(cleaned);
-
-            parsed.source = 'Нейросетевой Меморандум Gemini 2.5 Flash';
-            return parsed;
-        } catch (err) {
-            clearTimeout(timeoutId);
-            console.warn('Neural generation error, fallback to Quantum:', err);
-            const fallback = this.generateQuantum();
-            fallback.source = 'Квантовый Модуль (Резервный Режим)';
-            return fallback;
-        }
-    }
-
-    async generate() {
-        if (this.currentMode === 'neural') {
-            return await this.generateNeural();
-        }
-        return this.generateQuantum();
+        // Return a fresh clone
+        return JSON.parse(JSON.stringify(randomItem));
     }
 }
 
