@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOFT CAPITAL PARTNERS — Инвестиционный Синдикат</title>
-    <meta name="description" content="Суверенный инвестиционный синдикат и меморандум инновационных технологических моделей. Кинетическая 3D графика, мульти-кошельки и реестр топ-инвесторов.">
+    <title>LOFT CAPITAL PARTNERS — Инвестиционный Синдикат Инноваций</title>
+    <meta name="description" content="Суверенный инвестиционный синдикат и генератор абсурдных инновационных моделей. Интерактивная 3D графика, база данных топ-инвесторов и депозиты в сети TRON.">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
 
-    <!-- Stylesheet -->
+    <!-- Стили -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- Three.js and Canvas Confetti -->
+    <!-- Three.js и Конфетти -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-    <!-- 3D Kinetic Art Canvas -->
+    <!-- Фоновая Кинетическая 3D Сцена -->
     <div id="webgl-canvas-container"></div>
 
-    <!-- Ambient Texture Layer -->
+    <!-- Текстурный Слой -->
     <div class="ambient-texture"></div>
 
     <div class="app-container">
-        <!-- Confidential Ticker Bar -->
+        <!-- Бегущая строка котировок активов -->
         <div class="ticker-bar">
             <div class="ticker-track">
                 <span class="ticker-item"><span class="sym">$PELMEN</span> <span class="val">+420.69%</span></span>
@@ -31,203 +31,204 @@
                 <span class="ticker-item"><span class="sym">$KOTIK</span> <span class="val">+322.0%</span></span>
                 <span class="ticker-item"><span class="sym">$SHAU</span> <span class="val">+888.0%</span></span>
                 <span class="ticker-item"><span class="sym">$SLEEP</span> <span class="val">+9999%</span></span>
-                <span class="ticker-item"><span class="sym">$DOSHA</span> <span class="val">+228.5%</span></span>
-                <!-- Repeat for infinite marquee -->
+                <span class="ticker-item"><span class="sym">$NOSOK</span> <span class="val">+144.5%</span></span>
+                <!-- Бесшовное дублирование -->
                 <span class="ticker-item"><span class="sym">$PELMEN</span> <span class="val">+420.69%</span></span>
                 <span class="ticker-item"><span class="sym">$SLACK</span> <span class="val">+133.7%</span></span>
                 <span class="ticker-item"><span class="sym">$BABKA</span> <span class="val">+69.4%</span></span>
                 <span class="ticker-item"><span class="sym">$KOTIK</span> <span class="val">+322.0%</span></span>
                 <span class="ticker-item"><span class="sym">$SHAU</span> <span class="val">+888.0%</span></span>
                 <span class="ticker-item"><span class="sym">$SLEEP</span> <span class="val">+9999%</span></span>
-                <span class="ticker-item"><span class="sym">$DOSHA</span> <span class="val">+228.5%</span></span>
+                <span class="ticker-item"><span class="sym">$NOSOK</span> <span class="val">+144.5%</span></span>
             </div>
         </div>
 
-        <!-- Executive Header -->
+        <!-- Шапка Синдиката -->
         <header class="header">
             <div class="brand">
                 <div class="brand-emblem">LC</div>
                 <div class="brand-info">
                     <h1>LOFT CAPITAL &amp; CO.</h1>
-                    <span class="brand-subtitle">VENTURE MEMORANDUM // SWISS VAULT</span>
+                    <span class="brand-subtitle">СИНДИКАТ ИННОВАЦИЙ // ШВЕЙЦАРСКИЙ ДЕПОЗИТАРИЙ</span>
                 </div>
             </div>
 
             <div class="nav-actions">
                 <button id="btn-audio" class="btn-loft-icon" title="Звуковые сигналы">🔊</button>
-                <button id="btn-favorites" class="btn-loft-icon" title="Портфель активов">★</button>
+                <button id="btn-favorites" class="btn-loft-icon" title="Инвестиционный портфель">★</button>
                 <button id="btn-connect-wallet" class="btn-connect-wallet">
                     <span class="status-dot"></span>
-                    <span id="wallet-label">Подключить кошелек</span>
+                    <span id="wallet-label">Подключить Кошелек</span>
                 </button>
             </div>
         </header>
 
-        <!-- Main Content -->
+        <!-- Главное Содержимое -->
         <main class="main-content">
-            <div class="hero-classification">OFFERING MEMORANDUM // STRICTLY CONFIDENTIAL</div>
+            <div class="hero-classification">ИНВЕСТИЦИОННЫЙ МЕМОРАНДУМ // СТРОГО КОНФИДЕНЦИАЛЬНО</div>
             <h2 class="hero-heading">Суверенный Синдикат Инноваций</h2>
             <p class="hero-description">
-                Институциональный аудит и аллокация капитала в бытовые, гастрономические, B2B и технологические стартапы с высоким уровнем абсурда.
+                Институциональный аудит и аллокация венчурного капитала в бытовые, гастрономические, офисные и технологические стартапы с высоким уровнем абсурда.
             </p>
 
-            <!-- Category Filter Bar -->
+            <!-- Фильтры по отраслям -->
             <div class="category-filter-bar">
                 <button class="filter-pill active" data-filter="all">Все направления</button>
-                <button class="filter-pill" data-filter="FoodTech">FoodTech &amp; Кухня</button>
-                <button class="filter-pill" data-filter="B2B">B2B &amp; Офисный Софт</button>
-                <button class="filter-pill" data-filter="Lifestyle">Lifestyle &amp; Дейтинг</button>
-                <button class="filter-pill" data-filter="DeepTech">DeepTech &amp; Гаджеты</button>
+                <button class="filter-pill" data-filter="food">Кухня &amp; Гастрономия</button>
+                <button class="filter-pill" data-filter="b2b">Офис &amp; Карьера</button>
+                <button class="filter-pill" data-filter="home">Быт &amp; Дом</button>
+                <button class="filter-pill" data-filter="city">Двор &amp; Город</button>
+                <button class="filter-pill" data-filter="lifestyle">Отношения &amp; Жизнь</button>
             </div>
 
-            <!-- Primary Generate Button -->
+            <!-- Главная Кнопка Синтеза -->
             <button id="btn-generate" class="btn-loft-primary">
                 СГЕНЕРИРОВАТЬ МЕМОРАНДУМ
             </button>
 
-            <!-- 3D Tilt Memorandum Card -->
+            <!-- Карточка Инвестиционного Меморандума -->
             <div id="memorandum-wrapper" class="memorandum-wrapper">
                 <article id="memorandum-card" class="memorandum-card">
-                    <div class="memorandum-watermark">CONFIDENTIAL // SERIES SEED</div>
+                    <div class="memorandum-watermark">КОНФИДЕНЦИАЛЬНО // РАУНД А</div>
 
-                    <!-- Header -->
+                    <!-- Заголовок карточки -->
                     <div class="card-header-loft">
                         <div class="startup-title-block">
-                            <h3 id="startup-name">PelmeniAlert Smart-Pot</h3>
-                            <span id="startup-ticker" class="ticker-tag">$PELMEN</span>
-                            <span id="startup-category" class="filter-pill" style="padding: 2px 8px; font-size: 0.7rem; pointer-events: none;">FoodTech &amp; IoT</span>
+                            <h3 id="startup-name">Загрузка проекта...</h3>
+                            <span id="startup-ticker" class="ticker-tag">$ASSET</span>
+                            <span id="startup-category" class="filter-pill" style="padding: 2px 8px; font-size: 0.7rem; pointer-events: none;">Сектор</span>
                         </div>
-                        <span id="startup-stage" class="stage-tag">SERIES A: $14,200,000 VALUATION</span>
+                        <span id="startup-stage" class="stage-tag">ОЦЕНКА СИНДИКАТА</span>
                     </div>
 
-                    <!-- Thesis Quote -->
+                    <!-- Тезис сделки -->
                     <p id="startup-tagline" class="memorandum-thesis">
-                        «Умная кастрюля с Push-уведомлениями: Пельмени всплыли, бросай работу и иди есть.»
+                        «Инновационная оптимизация бытия без смс и регистрации.»
                     </p>
 
-                    <!-- Executive KPI Metrics Bar -->
+                    <!-- KPI Метрики Проекта -->
                     <div class="metrics-kpi-bar">
                         <div class="kpi-tile">
-                            <span class="label">TAM (Рынок)</span>
-                            <span id="kpi-tam" class="value">$8.4B</span>
+                            <span class="label">Объем Рынка (TAM)</span>
+                            <span id="kpi-tam" class="value">$12.4B</span>
                         </div>
                         <div class="kpi-tile">
-                            <span class="label">Burn Rate</span>
+                            <span class="label">Ежемесячные Траты</span>
                             <span id="kpi-burn" class="value">$18,500 / мес</span>
                         </div>
                         <div class="kpi-tile">
-                            <span class="label">Runway</span>
+                            <span class="label">Запас Прочности</span>
                             <span id="kpi-runway" class="value">14 месяцев</span>
                         </div>
                         <div class="kpi-tile">
-                            <span class="label">Unit-Экономика</span>
-                            <span id="kpi-unit" class="value">+42% маржи</span>
+                            <span class="label">Юнит-Экономика</span>
+                            <span id="kpi-unit" class="value">+65% маржа</span>
                         </div>
                         <div class="kpi-tile">
-                            <span class="label">Hype Index</span>
-                            <span id="kpi-hype" class="value" style="color: var(--accent-success);">96.4% КРИТИЧЕСКИЙ</span>
+                            <span class="label">Индекс Хайпа</span>
+                            <span id="kpi-hype" class="value" style="color: var(--accent-success);">97.2% ВЫСОКИЙ</span>
                         </div>
                     </div>
 
-                    <!-- Problem & Solution Grid -->
+                    <!-- Проблема и Решение -->
                     <div class="memorandum-grid">
                         <div class="section-box">
                             <div class="section-title">01. Проблема Рынка</div>
                             <p id="pitch-problem" class="section-content">
-                                Ежегодно россияне переваривают до 840,000 тонн пельменей из-за залипания в мемах и рабочих созвонах.
+                                Описание рыночной проблемы...
                             </p>
                         </div>
 
                         <div class="section-box">
                             <div class="section-title">02. Архитектура Решения</div>
                             <p id="pitch-solution" class="section-content">
-                                Ультразвуковой датчик всплытия теста с интеграцией в Telegram и сиреной тревоги на кухне.
+                                Описание технологического решения...
                             </p>
                         </div>
                     </div>
 
-                    <!-- SWOT Analysis 2x2 Matrix -->
-                    <div class="section-title" style="margin-bottom: 10px;">03. SWOT-Анализ Инвестиционных Рисков</div>
+                    <!-- SWOT-Анализ Рисков и Преимуществ -->
+                    <div class="section-title" style="margin-bottom: 10px;">03. Анализ Рисков и Преимуществ (SWOT)</div>
                     <div class="swot-matrix">
                         <div class="swot-quadrant swot-s">
                             <div class="swot-header">
                                 <span class="swot-letter">S</span>
-                                <span>Strengths (Преимущества)</span>
+                                <span>Сильные Стороны (Strengths)</span>
                             </div>
-                            <p id="swot-s" class="swot-content">Единственный прибор, отличающий пельмень от сосиски.</p>
+                            <p id="swot-s" class="swot-content">Уникальные преимущества технологии на рынке.</p>
                         </div>
                         <div class="swot-quadrant swot-w">
                             <div class="swot-header">
                                 <span class="swot-letter">W</span>
-                                <span>Weaknesses (Слабые места)</span>
+                                <span>Слабые Места (Weaknesses)</span>
                             </div>
-                            <p id="swot-w" class="swot-content">При варке вареников с вишней система уходит в перезагрузку.</p>
+                            <p id="swot-w" class="swot-content">Внутренние ограничения и детские болезни продукта.</p>
                         </div>
                         <div class="swot-quadrant swot-o">
                             <div class="swot-header">
                                 <span class="swot-letter">O</span>
-                                <span>Opportunities (Перспективы)</span>
+                                <span>Возможности (Opportunities)</span>
                             </div>
-                            <p id="swot-o" class="swot-content">Партнерство с мясокомбинатами и круглосуточными ларьками.</p>
+                            <p id="swot-o" class="swot-content">Перспективы масштабирования и партнерств.</p>
                         </div>
                         <div class="swot-quadrant swot-t">
                             <div class="swot-header">
                                 <span class="swot-letter">T</span>
-                                <span>Threats (Угрозы)</span>
+                                <span>Угрозы (Threats)</span>
                             </div>
-                            <p id="swot-t" class="swot-content">Бабушка фаундера утверждает, что чувствует всплытие сердцем.</p>
+                            <p id="swot-t" class="swot-content">Внешние риски регуляторов и конкурентов.</p>
                         </div>
                     </div>
 
-                    <!-- Roadmap Milestones -->
+                    <!-- Дорожная Карта Развития -->
                     <div class="section-box full" style="margin-bottom: 24px;">
-                        <div class="section-title">04. Дорожная Карта Синдиката (Roadmap)</div>
+                        <div class="section-title">04. Дорожная Карта Развития Синдиката</div>
                         <div id="roadmap-container" class="roadmap-container">
-                            <!-- Populated dynamically -->
+                            <!-- Заполняется динамически -->
                         </div>
                     </div>
 
-                    <!-- Founders & Team -->
+                    <!-- Команда Фаундеров -->
                     <div class="section-box full" style="margin-bottom: 24px;">
                         <div class="section-title">05. Ключевой Менеджмент &amp; Основатели</div>
                         <div id="founders-row" class="founders-row">
-                            <!-- Populated dynamically -->
+                            <!-- Заполняется динамически -->
                         </div>
                     </div>
 
-                    <!-- Cap Table / Tokenomics -->
+                    <!-- Распределение Долей Капитала -->
                     <div class="section-box full" style="margin-bottom: 24px;">
                         <div class="section-title">06. Структура Капитала &amp; Аллокация ($TICKER)</div>
                         <div id="cap-table-bar" class="cap-table-bar"></div>
                         <div id="cap-table-legend" class="cap-table-legend"></div>
                     </div>
 
-                    <!-- Backers & Audit -->
+                    <!-- Инвесторы и Аудит -->
                     <div class="memorandum-grid" style="margin-bottom: 20px;">
                         <div class="section-box">
-                            <div class="section-title">07. Ведущие Синдикаты</div>
+                            <div class="section-title">07. Ведущие Синдикаты Инвесторов</div>
                             <p id="pitch-backers" class="section-content">
-                                Доширак Capital &amp; Ассоциация Студентов Заочников
+                                Швейцарский Фонд «Geneva Alpha Partners»
                             </p>
                         </div>
                         <div class="section-box">
-                            <div class="section-title">08. Заключение Аудита</div>
+                            <div class="section-title">08. Заключение Независимой Экспертизы</div>
                             <p id="pitch-audit" class="section-content">
-                                🛡️ Протестировано в общежитии: 0 сгоревших кухонь за семестр
+                                🛡️ Государственная экспертиза: 100% соответствие стандартам
                             </p>
                         </div>
                     </div>
 
-                    <!-- Tags -->
+                    <!-- Теги Классификации -->
                     <div class="section-box full" style="margin-bottom: 20px;">
-                        <div class="section-title">09. Классификация Сделки</div>
+                        <div class="section-title">09. Классификационные Теги Сделки</div>
                         <div id="pitch-tags" class="tags-container"></div>
                     </div>
 
-                    <!-- Action Footer -->
+                    <!-- Подвал Карточки -->
                     <div class="card-footer-loft">
                         <div id="source-stamp" class="source-stamp">
-                            СТАТУС: Аналитический Модуль Синдиката
+                            СТАТУС: Процедурный Аналитический Модуль (0 токенов расхода)
                         </div>
                         <div class="footer-actions">
                             <button id="btn-fav" class="btn-loft-secondary">☆ В портфель</button>
@@ -238,11 +239,11 @@
                 </article>
             </div>
 
-            <!-- Interactive ROI Calculator Widget -->
+            <!-- Интерактивный Калькулятор Доходности -->
             <section class="roi-calculator-section">
                 <div class="roi-header">
                     <div class="roi-title">Интерактивный Калькулятор Доходности Синдиката</div>
-                    <span class="badge-verified">PROPRIETARY ALGO</span>
+                    <span class="badge-verified">ПРОПРИЕТАРНЫЙ АЛГОРИТМ</span>
                 </div>
                 <div class="roi-slider-container">
                     <div class="roi-slider-row">
@@ -267,12 +268,12 @@
                 </div>
             </section>
 
-            <!-- Syndicate Top Investors Leaderboard -->
+            <!-- Реестр Топ-Инвесторов и База Данных -->
             <section class="syndicate-section">
                 <div class="syndicate-header">
                     <div class="syndicate-title">
                         <h3>Реестр Топ-Инвесторов Синдиката</h3>
-                        <p>Институциональный пул аллокаций. Подтвержденные депозиты синдиката в сети TRON (USDT / TRX).</p>
+                        <p>Институциональный реестр аллокаций. Подтвержденные депозиты синдиката в сети TRON (USDT / TRX).</p>
                     </div>
                     <div class="syndicate-metrics">
                         <div class="metric-item">
@@ -280,41 +281,59 @@
                             <span id="metric-total-capital" class="metric-value">$534,920</span>
                         </div>
                         <div class="metric-item">
-                            <span class="metric-label">Статус Пула</span>
-                            <span id="metric-active-deals" class="metric-value">6 СИНДИКАТОВ</span>
+                            <span class="metric-label">Средний Чек</span>
+                            <span id="metric-avg-check" class="metric-value">$89,153</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Всего Инвесторов</span>
+                            <span id="metric-total-investors" class="metric-value">6 СИНДИКАТОВ</span>
                         </div>
                     </div>
                 </div>
 
+                <!-- Панель Инструментов Базы Данных -->
+                <div class="db-toolbar">
+                    <input id="db-search-input" type="text" class="db-search-input" placeholder="🔍 Поиск по инвестору или стартапу...">
+                    <div class="db-filters-group">
+                        <button class="db-filter-btn active" data-db-filter="all">Все</button>
+                        <button class="db-filter-btn" data-db-filter="large">&gt; $100k</button>
+                        <button class="db-filter-btn" data-db-filter="medium">$30k - $100k</button>
+                        <button class="db-filter-btn" data-db-filter="angel">&lt; $30k</button>
+                    </div>
+                    <div class="db-actions-group">
+                        <button id="btn-export-db" class="btn-db-action">📥 Экспорт JSON</button>
+                        <button id="btn-open-invest-top" class="btn-db-action" style="background: rgba(224, 181, 137, 0.15); border-color: var(--accent-bronze); color: var(--accent-bronze); font-weight: 600;">
+                            ➕ Внести Депозит
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Таблица Инвесторов -->
                 <div class="syndicate-table-wrapper">
                     <table class="syndicate-table">
                         <thead>
                             <tr>
-                                <th>Ранг</th>
-                                <th>Инвестор / Синдикат</th>
-                                <th>Аллокация</th>
-                                <th>Целевой Ассет</th>
+                                <th>№</th>
+                                <th>Инвестор / Семейный Офис</th>
+                                <th>Аллокация (USDT)</th>
+                                <th>Целевой Проект</th>
+                                <th>Категория</th>
+                                <th>Статус</th>
                                 <th>Дата</th>
                             </tr>
                         </thead>
                         <tbody id="syndicate-table-body">
-                            <!-- Populated dynamically -->
+                            <!-- Заполняется динамически из базы данных -->
                         </tbody>
                     </table>
-                </div>
-
-                <div style="margin-top: 24px; text-align: center;">
-                    <button id="btn-open-invest-top" class="btn-loft-primary" style="margin-bottom: 0; padding: 12px 28px; font-size: 0.85rem;">
-                        Стать Инвестором Синдиката (TRON Deposit)
-                    </button>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- MODALS -->
+    <!-- МОДАЛЬНЫЕ ОКНА -->
 
-    <!-- Wallet Connect Modal -->
+    <!-- Модалка Подключения Кошелька -->
     <div id="modal-wallet" class="loft-modal-backdrop">
         <div class="loft-modal-card">
             <div class="modal-header-loft">
@@ -330,10 +349,10 @@
                         <span style="font-size: 1.2rem;">🔴</span>
                         <div>
                             <div class="wallet-row-name" style="font-weight: 600;">TronLink</div>
-                            <div style="font-size: 0.72rem; color: var(--text-muted);">TRON Protocol (USDT-TRC20 / TRX)</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted);">Сеть TRON (USDT-TRC20 / TRX)</div>
                         </div>
                     </div>
-                    <span class="badge-verified">RECOMMENDED</span>
+                    <span class="badge-verified">РЕКОМЕНДОВАНО</span>
                 </div>
 
                 <div class="wallet-row-item" data-wallet="metamask" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; cursor: pointer;">
@@ -341,7 +360,7 @@
                         <span style="font-size: 1.2rem;">🦊</span>
                         <div>
                             <div class="wallet-row-name" style="font-weight: 600;">MetaMask</div>
-                            <div style="font-size: 0.72rem; color: var(--text-muted);">Ethereum / EVM Networks</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted);">Сети Ethereum / EVM</div>
                         </div>
                     </div>
                     <span style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono);">EVM</span>
@@ -352,7 +371,7 @@
                         <span style="font-size: 1.2rem;">👻</span>
                         <div>
                             <div class="wallet-row-name" style="font-weight: 600;">Phantom</div>
-                            <div style="font-size: 0.72rem; color: var(--text-muted);">Solana Network</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted);">Сеть Solana</div>
                         </div>
                     </div>
                     <span style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono);">SOL</span>
@@ -372,7 +391,7 @@
         </div>
     </div>
 
-    <!-- Invest / Direct Deposit Modal -->
+    <!-- Модалка Внесения Капитала (TRON Депозит) -->
     <div id="modal-invest" class="loft-modal-backdrop">
         <div class="loft-modal-card" style="max-width: 540px;">
             <div class="modal-header-loft">
@@ -380,13 +399,13 @@
                 <button class="btn-close-loft">&times;</button>
             </div>
 
-            <!-- Vault QR Box -->
+            <!-- Блок QR-кода и Адреса -->
             <div class="vault-box">
                 <div style="font-size: 0.75rem; color: var(--accent-sand); text-transform: uppercase; letter-spacing: 1px;">
-                    Официальный Реквизит Синдиката (TRON Network)
+                    Официальные Реквизиты Синдиката (Сеть TRON)
                 </div>
                 <div class="qr-container">
-                    <img id="qr-image" class="qr-image" alt="TRON Deposit QR">
+                    <img id="qr-image" class="qr-image" alt="QR-код для депозита в TRON">
                 </div>
                 <div style="font-size: 0.75rem; color: var(--text-muted);">Сеть: <strong>TRON (TRC-20 / TRX)</strong></div>
                 <div class="vault-address-row">
@@ -395,17 +414,17 @@
                 </div>
             </div>
 
-            <!-- Direct TronLink Transfer if installed -->
+            <!-- Кнопка прямого перевода через TronLink -->
             <div style="margin-bottom: 16px; text-align: center;">
                 <button id="btn-direct-tronlink" class="btn-loft-secondary" style="width: 100%; border-color: var(--accent-bronze); color: var(--accent-bronze);">
                     ⚡ Прямой перевод через TronLink Extension
                 </button>
             </div>
 
-            <!-- Registration in Leaderboard Form -->
+            <!-- Форма фиксации в Реестре Базы Данных -->
             <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;">
                 <div style="font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; color: #fff;">
-                    Внесение в Реестр Топ-Инвесторов:
+                    Внесение в Официальный Реестр Топ-Инвесторов:
                 </div>
                 <div class="form-group-loft">
                     <label for="input-investor-name">Имя / Название Синдиката:</label>
@@ -416,8 +435,8 @@
                     <input id="input-invest-amount" type="number" class="input-loft" value="10000" step="500">
                 </div>
                 <div class="form-group-loft">
-                    <label for="input-tx-hash">Хэш транзакции TxID (опционально):</label>
-                    <input id="input-tx-hash" type="text" class="input-loft" placeholder="Вставьте хэш транзакции из TronScan">
+                    <label for="input-tx-hash">Хэш транзакции TxID (из TronScan / кошелька):</label>
+                    <input id="input-tx-hash" type="text" class="input-loft" placeholder="Вставьте хэш транзакции (опционально)">
                 </div>
                 <button id="btn-submit-investment" class="btn-loft-primary" style="width: 100%; margin-top: 14px; margin-bottom: 0;">
                     Зафиксировать в Реестре Инвесторов
@@ -426,7 +445,7 @@
         </div>
     </div>
 
-    <!-- Portfolio / History Modal -->
+    <!-- Модалка Портфеля Сохраненных Проектов -->
     <div id="modal-history" class="loft-modal-backdrop">
         <div class="loft-modal-card">
             <div class="modal-header-loft">
@@ -434,15 +453,15 @@
                 <button class="btn-close-loft">&times;</button>
             </div>
             <div id="history-list" style="display: flex; flex-direction: column; gap: 8px; max-height: 340px; overflow-y: auto;">
-                <!-- Populated dynamically -->
+                <!-- Заполняется динамически -->
             </div>
         </div>
     </div>
 
-    <!-- Toast Notifications -->
+    <!-- Всплывающие уведомления -->
     <div id="toast-container" class="toast-loft-container"></div>
 
-    <!-- Scripts -->
+    <!-- Скрипты приложения -->
     <script src="audio.js"></script>
     <script src="database.js"></script>
     <script src="wallet-service.js"></script>

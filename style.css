@@ -2,11 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@600;700;800&display=swap');
 
 :root {
-    --bg-main: #0b0c10;
-    --bg-surface: #12131a;
-    --bg-card: rgba(19, 21, 29, 0.9);
-    --bg-card-hover: rgba(24, 27, 38, 0.96);
-    --bg-tile: rgba(14, 15, 22, 0.75);
+    --bg-main: #0a0b0f;
+    --bg-surface: #12131b;
+    --bg-card: rgba(18, 20, 28, 0.92);
+    --bg-tile: rgba(13, 14, 20, 0.85);
 
     --border-subtle: rgba(255, 255, 255, 0.07);
     --border-bronze: rgba(224, 181, 137, 0.28);
@@ -47,7 +46,6 @@ body {
     position: relative;
 }
 
-/* 3D WebGL Background */
 #webgl-canvas-container {
     position: fixed;
     top: 0;
@@ -58,20 +56,18 @@ body {
     pointer-events: none;
 }
 
-/* Ambient Grain */
 .ambient-texture {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: radial-gradient(circle at 50% 25%, rgba(224, 181, 137, 0.035) 0%, transparent 65%),
-                radial-gradient(circle at 80% 75%, rgba(136, 146, 176, 0.025) 0%, transparent 55%);
+    background: radial-gradient(circle at 50% 20%, rgba(224, 181, 137, 0.04) 0%, transparent 65%),
+                radial-gradient(circle at 80% 80%, rgba(136, 146, 176, 0.03) 0%, transparent 55%);
     pointer-events: none;
     z-index: 1;
 }
 
-/* Container */
 .app-container {
     position: relative;
     z-index: 10;
@@ -81,9 +77,9 @@ body {
     padding-bottom: 90px;
 }
 
-/* Ticker Bar */
+/* Бегущая строка котировок */
 .ticker-bar {
-    background: rgba(12, 13, 18, 0.92);
+    background: rgba(11, 12, 17, 0.94);
     border-bottom: 1px solid var(--border-subtle);
     backdrop-filter: blur(14px);
     overflow: hidden;
@@ -123,7 +119,7 @@ body {
     100% { transform: translateX(-50%); }
 }
 
-/* Executive Header */
+/* Шапка */
 .header {
     display: flex;
     justify-content: space-between;
@@ -236,9 +232,9 @@ body {
     box-shadow: 0 0 8px var(--accent-success);
 }
 
-/* Main Content */
+/* Главный блок */
 .main-content {
-    max-width: 1060px;
+    max-width: 1080px;
     margin: 15px auto 0;
     padding: 0 24px;
     width: 100%;
@@ -247,7 +243,6 @@ body {
     align-items: center;
 }
 
-/* Hero Section */
 .hero-classification {
     font-family: var(--font-mono);
     font-size: 0.72rem;
@@ -277,12 +272,12 @@ body {
     text-align: center;
     color: var(--text-secondary);
     font-size: 0.98rem;
-    max-width: 660px;
+    max-width: 680px;
     margin-bottom: 24px;
     line-height: 1.6;
 }
 
-/* Category Filter Pills */
+/* Фильтры категорий */
 .category-filter-bar {
     display: flex;
     flex-wrap: wrap;
@@ -296,8 +291,8 @@ body {
     border: 1px solid var(--border-subtle);
     color: var(--text-secondary);
     font-family: var(--font-mono);
-    font-size: 0.75rem;
-    padding: 6px 14px;
+    font-size: 0.76rem;
+    padding: 7px 15px;
     border-radius: 4px;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -315,7 +310,7 @@ body {
     font-weight: 600;
 }
 
-/* Primary Generate Button */
+/* Главная кнопка генерации */
 .btn-loft-primary {
     display: flex;
     align-items: center;
@@ -329,7 +324,7 @@ body {
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
-    padding: 15px 38px;
+    padding: 16px 40px;
     border-radius: 4px;
     cursor: pointer;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(224, 181, 137, 0.2);
@@ -343,7 +338,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* THE MEMORANDUM CARD (Subtle, Restrained Tilt) */
+/* Карточка Меморандума (Сдержанный наклон) */
 .memorandum-wrapper {
     perspective: 1600px;
     width: 100%;
@@ -358,7 +353,6 @@ body {
     padding: 38px 44px;
     backdrop-filter: blur(24px);
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
-    /* Very subtle transformation */
     transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
     transform-style: preserve-3d;
     position: relative;
@@ -382,7 +376,6 @@ body {
     border-radius: 2px;
 }
 
-/* Card Header */
 .card-header-loft {
     display: flex;
     justify-content: space-between;
@@ -438,7 +431,7 @@ body {
     border-left: 2px solid var(--accent-sand);
 }
 
-/* EXECUTIVE METRICS KPI BAR (New High-Detail Section) */
+/* KPI Метрики */
 .metrics-kpi-bar {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -471,7 +464,7 @@ body {
     margin-top: 2px;
 }
 
-/* Two-Column Problem & Solution */
+/* Сетка проблем и решений */
 .memorandum-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -514,7 +507,7 @@ body {
     line-height: 1.55;
 }
 
-/* SWOT ANALYSIS MATRIX (New High-Detail Section) */
+/* SWOT Матрица */
 .swot-matrix {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -571,7 +564,7 @@ body {
     line-height: 1.45;
 }
 
-/* ROADMAP MILESTONES (New High-Detail Section) */
+/* Дорожная карта */
 .roadmap-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
@@ -600,7 +593,7 @@ body {
     line-height: 1.4;
 }
 
-/* FOUNDERS & KEY PERSONNEL (New High-Detail Section) */
+/* Команда */
 .founders-row {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -637,7 +630,7 @@ body {
     line-height: 1.35;
 }
 
-/* Cap Table / Tokenomics */
+/* Капитал */
 .cap-table-bar {
     display: flex;
     height: 8px;
@@ -672,7 +665,7 @@ body {
     border-radius: 2px;
 }
 
-/* Tags */
+/* Теги */
 .tags-container {
     display: flex;
     flex-wrap: wrap;
@@ -689,7 +682,7 @@ body {
     border-radius: 3px;
 }
 
-/* Memorandum Footer */
+/* Подвал меморандума */
 .card-footer-loft {
     display: flex;
     justify-content: space-between;
@@ -750,7 +743,7 @@ body {
     box-shadow: 0 4px 15px rgba(224, 181, 137, 0.3);
 }
 
-/* INTERACTIVE ROI CALCULATOR WIDGET (New Feature) */
+/* Калькулятор Доходности */
 .roi-calculator-section {
     width: 100%;
     margin-bottom: 36px;
@@ -843,7 +836,7 @@ body {
     margin-top: 2px;
 }
 
-/* TOP INVESTORS SYNDICATE SECTION */
+/* РЕЕСТР ИНВЕСТОРОВ & ПАНЕЛЬ БАЗЫ ДАННЫХ */
 .syndicate-section {
     width: 100%;
     background: var(--bg-surface);
@@ -901,7 +894,84 @@ body {
     color: var(--accent-bronze);
 }
 
-/* Syndicate Table */
+/* Панель инструментов БД (Поиск, фильтры, экспорт) */
+.db-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--border-subtle);
+    padding: 10px 14px;
+    border-radius: 4px;
+}
+
+.db-search-input {
+    background: #0d0e14;
+    border: 1px solid var(--border-subtle);
+    border-radius: 3px;
+    padding: 7px 12px;
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    width: 250px;
+    outline: none;
+}
+
+.db-search-input:focus {
+    border-color: var(--accent-bronze);
+}
+
+.db-filters-group {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.db-filter-btn {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.db-filter-btn.active {
+    background: rgba(224, 181, 137, 0.15);
+    border-color: var(--accent-bronze);
+    color: var(--accent-bronze);
+}
+
+.db-actions-group {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-db-action {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.74rem;
+    padding: 6px 12px;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-db-action:hover {
+    background: rgba(224, 181, 137, 0.12);
+    border-color: var(--accent-bronze);
+    color: var(--accent-bronze);
+}
+
+/* Таблица реестра */
 .syndicate-table-wrapper {
     overflow-x: auto;
 }
@@ -962,7 +1032,7 @@ body {
     color: var(--accent-bronze);
 }
 
-/* Modals */
+/* Модальные окна */
 .loft-modal-backdrop {
     position: fixed;
     top: 0;
@@ -1032,7 +1102,7 @@ body {
     color: #fff;
 }
 
-/* Vault / QR Code Box */
+/* Блок кошелька и QR */
 .vault-box {
     background: #0e0f15;
     border: 1px solid var(--border-subtle);
@@ -1093,7 +1163,6 @@ body {
     color: #121318;
 }
 
-/* Form Styles */
 .form-group-loft {
     display: flex;
     flex-direction: column;
@@ -1124,7 +1193,6 @@ body {
     border-color: var(--accent-bronze);
 }
 
-/* Toast */
 .toast-loft-container {
     position: fixed;
     bottom: 24px;
