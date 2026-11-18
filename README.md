@@ -1,47 +1,46 @@
-# 🚀 DELUSION.DAO — Web3 Генератор Бредовых Стартапов
+# 🏛️ LOFT CAPITAL & CO. — Sovereign Venture Syndicate
 
-> **Next-Gen Decentralized Absurdity Generator** с интерактивной 3D WebGL графикой (Three.js), отслеживанием курсора мыши, звуковыми кибер-эффектами и интеграцией нейросети Gemini AI.
+> **Институциональный инвестиционный меморандум и генератор технологических стартапов.**
+> Оформлен в сдержанном архитектурном стиле лофта (матовый графит, шлифованная бронза, теплая шампань) с интерактивной 3D кинетической скульптурой (Three.js), поддержкой мульти-кошельков (TronLink, MetaMask, Phantom), прямыми депозитами в сети TRON и базой данных Топ-Инвесторов.
 
-![Web3 Cyberpunk UI](https://img.shields.io/badge/Vibe-Cyberpunk%20Web3-00f0ff?style=for-the-badge)
+![Loft Style](https://img.shields.io/badge/Aesthetic-Architectural%20Loft-e0b589?style=for-the-badge)
 ![Three.js](https://img.shields.io/badge/Three.js-r128-black?style=for-the-badge&logo=three.js)
-![Gemini AI](https://img.shields.io/badge/Google%20Gemini-2.5%20Flash-ff007a?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-00ff88?style=for-the-badge)
+![TRON Protocol](https://img.shields.io/badge/TRON-TRC20%20%2F%20TRX-red?style=for-the-badge)
+![Gemini AI](https://img.shields.io/badge/Google%20Gemini-2.5%20Flash-c89666?style=for-the-badge)
 
 ---
 
-## 🔮 Особенности проекта
+## 🏛️ Ключевой функционал
 
-* 💎 **3D Интерактивные Модели:**
-  * Кристаллическое ядро Ethereum (Octahedron Diamond) со световыми эффектами и отражениями.
-  * Кибернетический Torus Knot и гироскопические кольца с независимым вращением.
-  * 6 орбитальных децентрализованных нод-спутников.
-  * Галактика из 1200+ частиц, реагирующих на курсор и скорость.
-* 🖱️ **Отслеживание Мыши (Mouse Tracking & Parallax):**
-  * Сцена плавно наклоняется вслед за курсором (Lerp Damping).
-  * 3D-Tilt эффект для карточки питча (карточка интерактивно реагирует на положение мыши в реальном времени).
-  * Неоновый след и курсорная подсветка.
-* ⚡ **Двойной Движок Генерации:**
-  * **⚡ Квантовый Движок (Offline):** Мгновенная генерация из сотен уморительных комбинаций в духе Web3, шаурмы, бабушек, гаражей и криптохайпа.
-  * **🧠 Gemini AI (Online):** Поддержка живой генерации через Google Gemini 2.5 Flash. Ключ API безопасно хранится в вашем браузере (`LocalStorage`).
-* 🦊 **Web3 Экспириенс:**
-  * Бегущая строка крипто-тикеров (`$BABKA ▲ 420.69%`, `$KEBAB ▼ -13.37%`).
-  * Симуляция подключения Web3 кошелька (MetaMask, Phantom, Rabby).
-  * Инвестиционная транзакция в тестовую сеть с салютом из конфетти.
-  * Синтезированные звуковые эффекты на чистом Web Audio API (без внешних аудиофайлов!).
-  * Копирование готового питча для инвесторов в один клик.
+1. **Архитектурный Дизайн в Стиле Лофта:**
+   * Сдержанная цветовая палитра: глубокий матовый графит (`#0c0d11`), сырой сланец (`#14151c`), теплая бронза (`#e0b589`), песчаник (`#c89666`) и золото (`#d4af37`).
+   * Строгая типографика: элитные шрифты *Syne*, *Cinzel*, *Inter* и *JetBrains Mono*.
+   * Подчеркнуто серьезная деловая подача абсурдных стартапов в формате официального **Конфиденциального Инвестиционного Меморандума (Series Seed / Series A)**.
 
----
+2. **Кинетическая 3D Скульптура (Three.js):**
+   * Центральный граненый додекаэдр из темного сланца и шлифованной бронзы.
+   * Тонкий золотой архитектурный каркас (Wireframe Cage).
+   * 3 независимых кинетических гироскопических кольца (Gimbal Tourbillon).
+   * Орбитальные монолиты и парящие частицы теплого света.
+   * Плавный параллакс и интерактивный 3D-наклон карточки меморандума вслед за мышью.
 
-## 🛠️ Стек технологий
-- **Three.js** (WebGL 3D Rendering)
-- **Vanilla JavaScript (ES6+)**
-- **Web Audio API** (Sound Synthesizer)
-- **Canvas-Confetti** (Праздничный взрыв конфетти при инвестициях)
-- **Google Gemini 2.5 Flash REST API**
-- **Modern CSS3** (Glassmorphism, CSS Grid, Flexbox, Custom Properties)
+3. **Интеграция Кошельков & Депозиты TRON:**
+   * **Официальный реквизит синдиката:** `TVKNb8MWNfxue3dQJxKB9oXT5h9Y88PYb5` (Сеть TRON: USDT-TRC20 / TRX).
+   * Динамический QR-код для моментального сканирования мобильными кошельками.
+   * Прямая интеграция с **TronLink Extension** для отправки транзакций в один клик.
+   * Поддержка **MetaMask (EVM)**, **Phantom (Solana)** и институциональных ключей.
+
+4. **База Данных & Реестр Топ-Инвесторов:**
+   * Интерактивная таблица лидеров (Syndicate Hall of Fame): ранги, верифицированные статусы, целевые активы и суммы аллокаций.
+   * Расчет общего синдицированного капитала в реальном времени.
+   * Любой инвестор может внести депозит и зафиксировать свое имя/название фонда в реестре синдиката.
+
+5. **Генерация на базе Gemini 2.5 Flash & Квантового Модуля:**
+   * Мгновенный квантовый движок (Offline) с сотнями деловых сценариев.
+   * Нейросетевая генерация меморандумов через Google Gemini 2.5 Flash с безопасным сохранением API-ключа в браузере.
 
 ---
 
-## 🌐 Демонстрация
-Сайт опубликован на **GitHub Pages**:
-👉 **https://gl1stodrist.github.io/crazy-startup-generator/**
+## 🌐 Ссылки
+* 🔗 **Опубликованный сайт:** [https://gl1stodrist.github.io/crazy-startup-generator/](https://gl1stodrist.github.io/crazy-startup-generator/)
+* 📦 **Репозиторий проекта:** [https://github.com/gl1stodrist/crazy-startup-generator](https://github.com/gl1stodrist/crazy-startup-generator)

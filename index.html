@@ -3,284 +3,358 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DELUSION.DAO — Генератор Бредовых Web3 Стартапов</title>
-    <meta name="description" content="Интерактивный Web3 генератор абсурдных стартап-идей с 3D-графикой, отслеживанием курсора и интеграцией Gemini AI">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+    <title>LOFT CAPITAL PARTNERS — Инвестиционный Синдикат</title>
+    <meta name="description" content="Суверенный инвестиционный синдикат и меморандум инновационных технологических моделей. Кинетическая 3D графика, мульти-кошельки и реестр топ-инвесторов.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏛️</text></svg>">
 
-    <!-- CSS Stylesheet -->
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
 
-    <!-- External Libraries: Three.js and Canvas Confetti -->
+    <!-- Three.js and Canvas Confetti -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 </head>
 <body>
-    <!-- 3D WebGL Canvas Layer -->
+    <!-- 3D Kinetic Art Canvas -->
     <div id="webgl-canvas-container"></div>
 
-    <!-- Scanline Cyber Overlay -->
-    <div class="scanlines"></div>
-
-    <!-- Mouse Tracking Cursor Glow -->
-    <div id="cursor-glow" class="cursor-glow"></div>
+    <!-- Ambient Texture Layer -->
+    <div class="ambient-texture"></div>
 
     <div class="app-container">
-        <!-- Top Live Crypto Ticker -->
+        <!-- Confidential Ticker Bar -->
         <div class="ticker-bar">
             <div class="ticker-track">
-                <span class="ticker-item"><span class="sym">$BABKA</span> <span class="up">▲ +420.69%</span></span>
-                <span class="ticker-item"><span class="sym">$SHAU</span> <span class="down">▼ -13.37%</span></span>
-                <span class="ticker-item"><span class="sym">$HAMSTER</span> <span class="up">▲ +1337.0%</span></span>
-                <span class="ticker-item"><span class="sym">$SLEEP</span> <span class="up">▲ +69.4%</span></span>
-                <span class="ticker-item"><span class="sym">$GOPNIK</span> <span class="up">▲ +888.0%</span></span>
-                <span class="ticker-item"><span class="sym">$KVAS</span> <span class="up">▲ +228.5%</span></span>
-                <span class="ticker-item"><span class="sym">$DRIST</span> <span class="up">▲ +9999%</span></span>
-                <span class="ticker-item"><span class="sym">$PELMEN</span> <span class="up">▲ +322.0%</span></span>
-                <span class="ticker-item"><span class="sym">$LADA</span> <span class="down">▼ -0.04%</span></span>
-                <span class="ticker-item"><span class="sym">$ZXC</span> <span class="up">▲ +1000x</span></span>
-                <!-- Repeat for seamless marquee -->
-                <span class="ticker-item"><span class="sym">$BABKA</span> <span class="up">▲ +420.69%</span></span>
-                <span class="ticker-item"><span class="sym">$SHAU</span> <span class="down">▼ -13.37%</span></span>
-                <span class="ticker-item"><span class="sym">$HAMSTER</span> <span class="up">▲ +1337.0%</span></span>
-                <span class="ticker-item"><span class="sym">$SLEEP</span> <span class="up">▲ +69.4%</span></span>
-                <span class="ticker-item"><span class="sym">$GOPNIK</span> <span class="up">▲ +888.0%</span></span>
-                <span class="ticker-item"><span class="sym">$KVAS</span> <span class="up">▲ +228.5%</span></span>
-                <span class="ticker-item"><span class="sym">$DRIST</span> <span class="up">▲ +9999%</span></span>
-                <span class="ticker-item"><span class="sym">$PELMEN</span> <span class="up">▲ +322.0%</span></span>
-                <span class="ticker-item"><span class="sym">$LADA</span> <span class="down">▼ -0.04%</span></span>
-                <span class="ticker-item"><span class="sym">$ZXC</span> <span class="up">▲ +1000x</span></span>
+                <span class="ticker-item"><span class="sym">$BABKA</span> <span class="val">+420.69%</span></span>
+                <span class="ticker-item"><span class="sym">$KEBAB</span> <span class="val">+133.7%</span></span>
+                <span class="ticker-item"><span class="sym">$SLEEP</span> <span class="val">+69.4%</span></span>
+                <span class="ticker-item"><span class="sym">$PELMEN</span> <span class="val">+322.0%</span></span>
+                <span class="ticker-item"><span class="sym">$DOSHA</span> <span class="val">+888.0%</span></span>
+                <span class="ticker-item"><span class="sym">$DRIST</span> <span class="val">+9999%</span></span>
+                <span class="ticker-item"><span class="sym">$KVAS</span> <span class="val">+228.5%</span></span>
+                <span class="ticker-item"><span class="sym">$BORSCH</span> <span class="val">+144.0%</span></span>
+                <!-- Repeat for infinite marquee -->
+                <span class="ticker-item"><span class="sym">$BABKA</span> <span class="val">+420.69%</span></span>
+                <span class="ticker-item"><span class="sym">$KEBAB</span> <span class="val">+133.7%</span></span>
+                <span class="ticker-item"><span class="sym">$SLEEP</span> <span class="val">+69.4%</span></span>
+                <span class="ticker-item"><span class="sym">$PELMEN</span> <span class="val">+322.0%</span></span>
+                <span class="ticker-item"><span class="sym">$DOSHA</span> <span class="val">+888.0%</span></span>
+                <span class="ticker-item"><span class="sym">$DRIST</span> <span class="val">+9999%</span></span>
+                <span class="ticker-item"><span class="sym">$KVAS</span> <span class="val">+228.5%</span></span>
+                <span class="ticker-item"><span class="sym">$BORSCH</span> <span class="val">+144.0%</span></span>
             </div>
         </div>
 
-        <!-- Header -->
+        <!-- Executive Header -->
         <header class="header">
             <div class="brand">
-                <div class="brand-logo">🚀</div>
-                <div class="brand-text">
-                    <h1>DELUSION.DAO</h1>
-                    <span class="brand-badge">WEB3 CORE v4.20</span>
+                <div class="brand-emblem">LC</div>
+                <div class="brand-info">
+                    <h1>LOFT CAPITAL &amp; CO.</h1>
+                    <span class="brand-subtitle">VENTURE MEMORANDUM // SWISS VAULT</span>
                 </div>
             </div>
 
             <div class="nav-actions">
-                <button id="btn-audio" class="btn-icon" title="Звуковые эффекты">🔊</button>
-                <button id="btn-history" class="btn-icon" title="Сохраненные стартапы">❤️</button>
-                <button id="btn-settings" class="btn-icon" title="Настройки Gemini AI">⚙️</button>
-                <button id="btn-wallet" class="btn-wallet">
-                    <span class="wallet-dot"></span>
-                    <span id="wallet-text">Connect Wallet</span>
+                <button id="btn-audio" class="btn-loft-icon" title="Звуковые сигналы">🔊</button>
+                <button id="btn-favorites" class="btn-loft-icon" title="Портфель активов">★</button>
+                <button id="btn-settings" class="btn-loft-icon" title="Параметры нейросети">⚙️</button>
+                <button id="btn-connect-wallet" class="btn-connect-wallet">
+                    <span class="status-dot"></span>
+                    <span id="wallet-label">Подключить кошелек</span>
                 </button>
             </div>
         </header>
 
         <!-- Main Content -->
         <main class="main-content">
-            <div class="hero-tag">⚡ NEXT-GEN DECENTRALIZED ABSURDITY</div>
-            <h2 class="hero-title">Генератор Бредовых Стартапов 3.0</h2>
-            <p class="hero-subtitle">
-                Инвестируй в идеи, которые даже твоя бабушка посчитает скамом. Оценка от $69M до сингулярности.
+            <div class="hero-classification">OFFERING MEMORANDUM // STRICTLY CONFIDENTIAL</div>
+            <h2 class="hero-heading">Суверенный Синдикат Инноваций</h2>
+            <p class="hero-description">
+                Институциональный аудит и аллокация венчурного капитала в модели с высоким коэффициентом технологического абсурда.
             </p>
 
             <!-- Mode Switcher -->
-            <div class="mode-switch-wrapper">
-                <button class="mode-btn active" data-mode="quantum">⚡ Квантовый Движок</button>
-                <button class="mode-btn" data-mode="neural">🧠 Gemini AI Нейросеть</button>
+            <div class="loft-switch">
+                <button class="loft-switch-btn active" data-mode="quantum">Квантовый Модуль</button>
+                <button class="loft-switch-btn" data-mode="neural">Gemini 2.5 Нейросеть</button>
             </div>
 
-            <!-- Big Generate Button -->
-            <button id="btn-generate" class="btn-generate">
-                <span>🎲 СГЕНЕРИРОВАТЬ СТАРТАП</span>
-                <div class="btn-glow"></div>
+            <!-- Primary Action Button -->
+            <button id="btn-generate" class="btn-loft-primary">
+                СГЕНЕРИРОВАТЬ МЕМОРАНДУМ
             </button>
 
-            <!-- 3D Tilt Card Wrapper -->
-            <div id="card-wrapper" class="card-wrapper">
-                <article id="startup-card" class="startup-card">
-                    <!-- Card Header -->
-                    <div class="card-header">
-                        <div class="startup-title-group">
-                            <span id="startup-name" class="startup-name">KebabChain 3.0</span>
-                            <span id="startup-ticker" class="startup-ticker">$KEBAB</span>
+            <!-- 3D Tilt Memorandum Card -->
+            <div id="memorandum-wrapper" class="memorandum-wrapper">
+                <article id="memorandum-card" class="memorandum-card">
+                    <div class="memorandum-watermark">CONFIDENTIAL // SERIES SEED</div>
+
+                    <div class="card-header-loft">
+                        <div class="startup-title-block">
+                            <h3 id="startup-name">KebabChain Infrastructure L2</h3>
+                            <span id="startup-ticker" class="ticker-tag">$KEBAB</span>
                         </div>
-                        <span id="startup-stage" class="startup-stage">🔥 PRE-SEED: $69,420,000 FDV</span>
+                        <span id="startup-stage" class="stage-tag">SERIES SEED: $69,420,000 POST-MONEY</span>
                     </div>
 
-                    <!-- Tagline -->
-                    <p id="startup-tagline" class="startup-tagline">
-                        «Если это выглядит как скам, звучит как скам и пахнет шаурмой — значит, это будущее финансов.»
+                    <p id="startup-tagline" class="memorandum-thesis">
+                        «Институциональная токенизация неэффективных бытовых процессов с математически доказанной нулевой целесообразностью.»
                     </p>
 
-                    <!-- Pitch Details Grid -->
-                    <div class="pitch-grid">
-                        <div class="pitch-box">
-                            <div class="pitch-label">🎯 Проблема</div>
-                            <p id="pitch-problem" class="pitch-text">
-                                Загрузка...
+                    <div class="memorandum-grid">
+                        <div class="section-box">
+                            <div class="section-title">01. Проблема Рынка</div>
+                            <p id="pitch-problem" class="section-content">
+                                Традиционная финансовая система Уолл-Стрит не позволяет секьюритизировать права требования на шаурму и гаражи дяди Толи.
                             </p>
                         </div>
 
-                        <div class="pitch-box">
-                            <div class="pitch-label">💡 Решение</div>
-                            <p id="pitch-solution" class="pitch-text">
-                                Загрузка...
+                        <div class="section-box">
+                            <div class="section-title">02. Архитектура Решения</div>
+                            <p id="pitch-solution" class="section-content">
+                                Внедрение децентрализованного Layer-2 роллапа с валидацией чесночного соуса через ZK-Proof-of-Garlic.
                             </p>
                         </div>
 
-                        <div class="pitch-box full-width">
-                            <div class="pitch-label">📊 Токеномика ($TICKER)</div>
-                            <div class="tokenomics-container">
-                                <div id="tokenomics-bar" class="tokenomics-bar"></div>
-                                <div id="tokenomics-legend" class="tokenomics-legend"></div>
-                            </div>
+                        <div class="section-box full">
+                            <div class="section-title">03. Структура Капитала &amp; Токеномика ($TICKER)</div>
+                            <div id="cap-table-bar" class="cap-table-bar"></div>
+                            <div id="cap-table-legend" class="cap-table-legend"></div>
                         </div>
 
-                        <div class="pitch-box">
-                            <div class="pitch-label">👑 Ведущие Инвесторы</div>
-                            <p id="pitch-backers" class="pitch-text">
-                                Andreessen Horowitz's Hamster
+                        <div class="section-box">
+                            <div class="section-title">04. Ведущие Синдикаты</div>
+                            <p id="pitch-backers" class="section-content">
+                                Syndicate Alpha Partners &amp; Hamster Ventures
                             </p>
                         </div>
 
-                        <div class="pitch-box">
-                            <div class="pitch-label">🛡️ Аудит Смарт-Контракта</div>
-                            <p id="pitch-audit" class="pitch-text">
-                                100% Уязвимый (CertiK No-Cap)
+                        <div class="section-box">
+                            <div class="section-title">05. Заключение Аудита</div>
+                            <p id="pitch-audit" class="section-content">
+                                100% институциональная уязвимость (CertiK No-Cap Verified)
                             </p>
                         </div>
 
-                        <div class="pitch-box full-width">
-                            <div class="pitch-label">🏷️ Категории &amp; Стек</div>
-                            <div id="pitch-tags" class="tags-list"></div>
+                        <div class="section-box full">
+                            <div class="section-title">06. Категории Сделки</div>
+                            <div id="pitch-tags" class="tags-container"></div>
                         </div>
                     </div>
 
-                    <!-- Action Footer -->
-                    <div class="card-actions">
-                        <div id="source-badge" class="source-badge">
-                            <span>⚡</span> Quantum Chaos Core
+                    <div class="card-footer-loft">
+                        <div id="source-stamp" class="source-stamp">
+                            СТАТУС: Квантовый Аналитический Модуль
                         </div>
-                        <div class="action-buttons-group">
-                            <button id="btn-fav" class="btn-secondary">🤍 В избранное</button>
-                            <button id="btn-copy" class="btn-secondary">📋 Скопировать Питч</button>
-                            <button id="btn-share-tg" class="btn-secondary">✈️ TG</button>
-                            <button id="btn-share-x" class="btn-secondary">✖️ X</button>
-                            <button id="btn-invest" class="btn-invest">💰 Инвестировать</button>
+                        <div class="footer-actions">
+                            <button id="btn-fav" class="btn-loft-secondary">☆ В портфель</button>
+                            <button id="btn-copy-memo" class="btn-loft-secondary">📋 Копировать Мемо</button>
+                            <button id="btn-invest-now" class="btn-loft-invest">Внести Капитал</button>
                         </div>
                     </div>
                 </article>
             </div>
+
+            <!-- Syndicate Top Investors Leaderboard -->
+            <section class="syndicate-section">
+                <div class="syndicate-header">
+                    <div class="syndicate-title">
+                        <h3>Реестр Топ-Инвесторов Синдиката</h3>
+                        <p>Институциональный пул аллокаций. Подтвержденные депозиты синдиката в сети TRON (USDT / TRX).</p>
+                    </div>
+                    <div class="syndicate-metrics">
+                        <div class="metric-item">
+                            <span class="metric-label">Общий Капитал</span>
+                            <span id="metric-total-capital" class="metric-value">$534,920</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Статус Пула</span>
+                            <span id="metric-active-deals" class="metric-value">6 СИНДИКАТОВ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="syndicate-table-wrapper">
+                    <table class="syndicate-table">
+                        <thead>
+                            <tr>
+                                <th>Ранг</th>
+                                <th>Инвестор / Синдикат</th>
+                                <th>Аллокация</th>
+                                <th>Целевой Ассет</th>
+                                <th>Дата</th>
+                            </tr>
+                        </thead>
+                        <tbody id="syndicate-table-body">
+                            <!-- Populated dynamically from InvestorDatabase -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div style="margin-top: 24px; text-align: center;">
+                    <button id="btn-open-invest-top" class="btn-loft-primary" style="margin-bottom: 0; padding: 12px 28px; font-size: 0.85rem;">
+                        Стать Инвестором Синдиката (TRON Deposit)
+                    </button>
+                </div>
+            </section>
         </main>
     </div>
 
-    <!-- Modals -->
+    <!-- MODALS -->
 
     <!-- Wallet Connect Modal -->
-    <div id="modal-wallet" class="modal-backdrop">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">🦊 Подключить Web3 Кошелек</h3>
-                <button class="btn-close">&times;</button>
+    <div id="modal-wallet" class="loft-modal-backdrop">
+        <div class="loft-modal-card">
+            <div class="modal-header-loft">
+                <h3 class="modal-title-loft">Авторизация Кошелька</h3>
+                <button class="btn-close-loft">&times;</button>
             </div>
-            <div class="wallet-option-list">
-                <div class="wallet-option">
-                    <div class="wallet-opt-left">
-                        <span class="wallet-opt-icon">🦊</span>
-                        <span>MetaMask</span>
-                    </div>
-                    <span class="brand-badge">POPULAR</span>
-                </div>
-                <div class="wallet-option">
-                    <div class="wallet-opt-left">
-                        <span class="wallet-opt-icon">👻</span>
-                        <span>Phantom (Solana)</span>
-                    </div>
-                    <span class="brand-badge">FAST</span>
-                </div>
-                <div class="wallet-option">
-                    <div class="wallet-opt-left">
-                        <span class="wallet-opt-icon">🐰</span>
-                        <span>Rabby Wallet</span>
-                    </div>
-                    <span class="brand-badge">DEGEN</span>
-                </div>
-                <div class="wallet-option">
-                    <div class="wallet-opt-left">
-                        <span class="wallet-opt-icon">📝</span>
-                        <span>Сид-фраза на салфетке</span>
-                    </div>
-                    <span class="brand-badge">SECURE 100%</span>
-                </div>
-            </div>
-            <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center;">
-                Безопасное Web3 соединение с тестовой сетью Delusion Testnet. Ваши реальные средства в безопасности.
+            <p style="font-size: 0.82rem; color: var(--text-secondary); margin-bottom: 18px;">
+                Выберите протокол подключения для валидации инвестиционных аллокаций:
             </p>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <div class="wallet-row-item" data-wallet="tronlink" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; cursor: pointer;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 1.2rem;">🔴</span>
+                        <div>
+                            <div class="wallet-row-name" style="font-weight: 600;">TronLink</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted);">TRON Protocol (USDT-TRC20 / TRX)</div>
+                        </div>
+                    </div>
+                    <span class="badge-verified">RECOMMENDED</span>
+                </div>
+
+                <div class="wallet-row-item" data-wallet="metamask" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; cursor: pointer;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 1.2rem;">🦊</span>
+                        <div>
+                            <div class="wallet-row-name" style="font-weight: 600;">MetaMask</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted);">Ethereum / EVM Networks</div>
+                        </div>
+                    </div>
+                    <span style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono);">EVM</span>
+                </div>
+
+                <div class="wallet-row-item" data-wallet="phantom" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; cursor: pointer;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 1.2rem;">👻</span>
+                        <div>
+                            <div class="wallet-row-name" style="font-weight: 600;">Phantom</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted);">Solana Network</div>
+                        </div>
+                    </div>
+                    <span style="font-size: 0.7rem; color: var(--text-muted); font-family: var(--font-mono);">SOL</span>
+                </div>
+
+                <div class="wallet-row-item" data-wallet="family_office" style="display: flex; justify-content: space-between; align-items: center; padding: 12px 16px; background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: 4px; cursor: pointer;">
+                    <div style="display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 1.2rem;">🏦</span>
+                        <div>
+                            <div class="wallet-row-name" style="font-weight: 600;">Swiss Family Office Key</div>
+                            <div style="font-size: 0.72rem; color: var(--text-muted);">Институциональный приватный ключ</div>
+                        </div>
+                    </div>
+                    <span style="font-size: 0.7rem; color: var(--accent-sand); font-family: var(--font-mono);">VAULT</span>
+                </div>
+            </div>
         </div>
     </div>
 
-    <!-- Invest Simulation Modal -->
-    <div id="modal-invest" class="modal-backdrop">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">💰 Инвестировать в Стартап</h3>
-                <button class="btn-close">&times;</button>
+    <!-- Invest / Direct Deposit Modal -->
+    <div id="modal-invest" class="loft-modal-backdrop">
+        <div class="loft-modal-card" style="max-width: 540px;">
+            <div class="modal-header-loft">
+                <h3 class="modal-title-loft">Внесение Капитала в Синдикат</h3>
+                <button class="btn-close-loft">&times;</button>
             </div>
-            <div style="margin-bottom: 18px;">
-                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;">Сумма инвестиций:</div>
-                <div style="display: flex; gap: 8px;">
-                    <input type="text" class="cyber-input" value="10.0 ETH" style="flex: 1;" readonly>
-                    <span style="display: flex; align-items: center; font-family: var(--font-mono); font-weight: 700; color: var(--neon-cyan);">~ $34,200</span>
+
+            <!-- Vault QR Box -->
+            <div class="vault-box">
+                <div style="font-size: 0.75rem; color: var(--accent-sand); text-transform: uppercase; letter-spacing: 1px;">
+                    Официальный Реквизит Синдиката (TRON Network)
+                </div>
+                <div class="qr-container">
+                    <img id="qr-image" class="qr-image" alt="TRON Deposit QR">
+                </div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Сеть: <strong>TRON (TRC-20 / TRX)</strong></div>
+                <div class="vault-address-row">
+                    <span id="vault-address-text">TVKNb8MWNfxue3dQJxKB9oXT5h9Y88PYb5</span>
+                    <button id="btn-copy-vault-address" class="btn-copy-address">Копировать</button>
                 </div>
             </div>
-            <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 12px; margin-bottom: 18px; font-family: var(--font-mono); font-size: 0.78rem; line-height: 1.6;">
-                <div>Токен распределения: <span id="invest-token-sym" style="color: var(--neon-green);">$KEBAB</span></div>
-                <div>Расчетный Gas Fee: <span style="color: var(--neon-gold);">420 GWEI ($0.69)</span></div>
-                <div>Вестинг период: <span>99 лет (без права выкупа)</span></div>
-                <div>Вероятность Rug Pull: <span style="color: var(--neon-pink);">99.9%</span></div>
+
+            <!-- Direct TronLink Transfer if installed -->
+            <div style="margin-bottom: 16px; text-align: center;">
+                <button id="btn-direct-tronlink" class="btn-loft-secondary" style="width: 100%; border-color: var(--accent-bronze); color: var(--accent-bronze);">
+                    ⚡ Прямой перевод через TronLink Extension
+                </button>
             </div>
-            <button id="btn-confirm-invest" class="btn-generate" style="width: 100%; justify-content: center; margin-bottom: 0;">
-                Подтвердить транзакцию
-            </button>
+
+            <!-- Registration in Leaderboard Form -->
+            <div style="border-top: 1px solid var(--border-subtle); padding-top: 16px;">
+                <div style="font-size: 0.8rem; font-weight: 600; margin-bottom: 12px; color: #fff;">
+                    Внесение в Реестр Топ-Инвесторов:
+                </div>
+                <div class="form-group-loft">
+                    <label for="input-investor-name">Имя / Название Синдиката:</label>
+                    <input id="input-investor-name" type="text" class="input-loft" placeholder="Например: Geneva Wealth Syndicate или Ваше Имя">
+                </div>
+                <div class="form-group-loft">
+                    <label for="input-invest-amount">Сумма депозита (USDT / TRX):</label>
+                    <input id="input-invest-amount" type="number" class="input-loft" value="10000" step="500">
+                </div>
+                <div class="form-group-loft">
+                    <label for="input-tx-hash">Хэш транзакции TxID (опционально):</label>
+                    <input id="input-tx-hash" type="text" class="input-loft" placeholder="Вставьте хэш транзакции из TronScan">
+                </div>
+                <button id="btn-submit-investment" class="btn-loft-primary" style="width: 100%; margin-top: 14px; margin-bottom: 0;">
+                    Зафиксировать в Реестре Инвесторов
+                </button>
+            </div>
         </div>
     </div>
 
     <!-- Gemini AI Settings Modal -->
-    <div id="modal-settings" class="modal-backdrop">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">⚙️ Настройки Gemini AI</h3>
-                <button class="btn-close">&times;</button>
+    <div id="modal-settings" class="loft-modal-backdrop">
+        <div class="loft-modal-card">
+            <div class="modal-header-loft">
+                <h3 class="modal-title-loft">Параметры Нейросети</h3>
+                <button class="btn-close-loft">&times;</button>
             </div>
-            <div class="api-input-group">
-                <label for="input-api-key">Google Gemini API Key:</label>
-                <input id="input-api-key" type="password" class="cyber-input" placeholder="AQ.Ab... или AIza...">
+            <div class="form-group-loft">
+                <label for="input-api-key">Ключ Google Gemini 2.5 API:</label>
+                <input id="input-api-key" type="password" class="input-loft" placeholder="AQ.Ab... или AIza...">
             </div>
-            <p style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 18px;">
-                🔒 <strong>Безопасность:</strong> Ключ сохраняется исключительно в вашем браузере (LocalStorage) и отправляется напрямую на серверы Google AI. Он никогда не сохраняется в публичном коде сайта.
+            <p style="font-size: 0.78rem; color: var(--text-secondary); line-height: 1.5; margin-bottom: 18px;">
+                🔒 Ключ сохраняется строго локально в хранилище вашего браузера (LocalStorage) и не передается третьим лицам.
             </p>
-            <button id="btn-save-key" class="btn-generate" style="width: 100%; justify-content: center; margin-bottom: 0;">
-                Сохранить ключ
+            <button id="btn-save-key" class="btn-loft-primary" style="width: 100%; margin-bottom: 0;">
+                Сохранить Настройки
             </button>
         </div>
     </div>
 
-    <!-- History / Favorites Modal -->
-    <div id="modal-history" class="modal-backdrop">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">❤️ Избранные Стартапы</h3>
-                <button class="btn-close">&times;</button>
+    <!-- Portfolio / History Modal -->
+    <div id="modal-history" class="loft-modal-backdrop">
+        <div class="loft-modal-card">
+            <div class="modal-header-loft">
+                <h3 class="modal-title-loft">Инвестиционный Портфель</h3>
+                <button class="btn-close-loft">&times;</button>
             </div>
-            <div id="history-list" class="wallet-option-list" style="max-height: 350px; overflow-y: auto;">
-                <!-- Generated items dynamically inserted -->
+            <div id="history-list" style="display: flex; flex-direction: column; gap: 8px; max-height: 340px; overflow-y: auto;">
+                <!-- Populated dynamically -->
             </div>
         </div>
     </div>
 
-    <!-- Toast Notifications Container -->
-    <div id="toast-container" class="toast-container"></div>
+    <!-- Toast Notifications -->
+    <div id="toast-container" class="toast-loft-container"></div>
 
-    <!-- Application Scripts -->
+    <!-- Scripts -->
     <script src="audio.js"></script>
+    <script src="database.js"></script>
+    <script src="wallet-service.js"></script>
     <script src="three-scene.js"></script>
     <script src="generator.js"></script>
     <script src="app.js"></script>

@@ -1,48 +1,46 @@
-// Main Application Logic
+// Loft Capital & Syndicate - Main Application Logic
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize 3D WebGL Scene
-    const scene = new Cyber3DScene('webgl-canvas-container');
+    // 1. Initialize 3D Loft Gallery Scene
+    const scene = new LoftGalleryScene('webgl-canvas-container');
 
-    // State
+    // 2. State
     let currentStartup = null;
     let isGenerating = false;
     let walletConnected = false;
-    let walletAddress = null;
-    let favorites = JSON.parse(localStorage.getItem('delusion_favorites') || '[]');
+    let currentAddress = null;
+    let favorites = JSON.parse(localStorage.getItem('loft_favorites') || '[]');
 
-    // DOM Elements
+    // 3. DOM Elements
     const btnGenerate = document.getElementById('btn-generate');
-    const startupCard = document.getElementById('startup-card');
-    const cardWrapper = document.getElementById('card-wrapper');
-    const cursorGlow = document.getElementById('cursor-glow');
-    
-    // Header elements
-    const btnWallet = document.getElementById('btn-wallet');
-    const walletText = document.getElementById('wallet-text');
+    const memorandumCard = document.getElementById('memorandum-card');
+    const memorandumWrapper = document.getElementById('memorandum-wrapper');
+
+    // Header buttons
+    const btnConnectWallet = document.getElementById('btn-connect-wallet');
+    const walletLabel = document.getElementById('wallet-label');
     const btnAudio = document.getElementById('btn-audio');
     const btnSettings = document.getElementById('btn-settings');
-    const btnHistory = document.getElementById('btn-history');
+    const btnFavorites = document.getElementById('btn-favorites');
 
-    // Startup Card Elements
+    // Card Fields
     const startupName = document.getElementById('startup-name');
     const startupTicker = document.getElementById('startup-ticker');
     const startupStage = document.getElementById('startup-stage');
     const startupTagline = document.getElementById('startup-tagline');
     const pitchProblem = document.getElementById('pitch-problem');
     const pitchSolution = document.getElementById('pitch-solution');
-    const tokenomicsBar = document.getElementById('tokenomics-bar');
-    const tokenomicsLegend = document.getElementById('tokenomics-legend');
+    const capTableBar = document.getElementById('cap-table-bar');
+    const capTableLegend = document.getElementById('cap-table-legend');
     const pitchBackers = document.getElementById('pitch-backers');
     const pitchAudit = document.getElementById('pitch-audit');
     const pitchTags = document.getElementById('pitch-tags');
-    const sourceBadge = document.getElementById('source-badge');
+    const sourceStamp = document.getElementById('source-stamp');
 
     // Action buttons
-    const btnCopy = document.getElementById('btn-copy');
-    const btnInvest = document.getElementById('btn-invest');
-    const btnShareTg = document.getElementById('btn-share-tg');
-    const btnShareX = document.getElementById('btn-share-x');
+    const btnCopyMemo = document.getElementById('btn-copy-memo');
+    const btnInvestNow = document.getElementById('btn-invest-now');
     const btnFav = document.getElementById('btn-fav');
+    const btnOpenInvestTop = document.getElementById('btn-open-invest-top');
 
     // Modals
     const modalWallet = document.getElementById('modal-wallet');
@@ -50,66 +48,104 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalSettings = document.getElementById('modal-settings');
     const modalHistory = document.getElementById('modal-history');
 
-    // Settings elements
+    // Syndicate Table & Metrics
+    const syndicateTableBody = document.getElementById('syndicate-table-body');
+    const metricTotalCapital = document.getElementById('metric-total-capital');
+    const metricActiveDeals = document.getElementById('metric-active-deals');
+
+    // Settings fields
     const inputApiKey = document.getElementById('input-api-key');
     const btnSaveKey = document.getElementById('btn-save-key');
-    const modeBtns = document.querySelectorAll('.mode-btn');
+    const switchBtns = document.querySelectorAll('.loft-switch-btn');
 
-    // Custom Cursor Glow Follower
-    window.addEventListener('mousemove', (e) => {
-        if (cursorGlow) {
-            cursorGlow.style.left = `${e.clientX}px`;
-            cursorGlow.style.top = `${e.clientY}px`;
-        }
-    });
+    // Invest modal fields
+    const qrImage = document.getElementById('qr-image');
+    const vaultAddressText = document.getElementById('vault-address-text');
+    const btnCopyVaultAddress = document.getElementById('btn-copy-vault-address');
+    const inputInvestorName = document.getElementById('input-investor-name');
+    const inputInvestAmount = document.getElementById('input-invest-amount');
+    const inputTxHash = document.getElementById('input-tx-hash');
+    const btnSubmitInvestment = document.getElementById('btn-submit-investment');
+    const btnDirectTronLink = document.getElementById('btn-direct-tronlink');
 
-    // 3D Card Tilt Effect on Mouse Move
-    if (cardWrapper && startupCard) {
-        cardWrapper.addEventListener('mousemove', (e) => {
-            const rect = cardWrapper.getBoundingClientRect();
+    // Initialize Vault Address in UI
+    const targetAddress = window.walletService.getTargetAddress();
+    if (vaultAddressText) vaultAddressText.textContent = targetAddress;
+    if (qrImage) qrImage.src = window.walletService.getQrCodeUrl();
+
+    // 3D Card Tilt Effect
+    if (memorandumWrapper && memorandumCard) {
+        memorandumWrapper.addEventListener('mousemove', (e) => {
+            const rect = memorandumWrapper.getBoundingClientRect();
             const x = e.clientX - rect.left;
             const y = e.clientY - rect.top;
-            
             const centerX = rect.width / 2;
             const centerY = rect.height / 2;
-            
-            const rotateX = ((y - centerY) / centerY) * -10;
-            const rotateY = ((x - centerX) / centerX) * 12;
-
-            startupCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.01, 1.01, 1.01)`;
+            const rotateX = ((y - centerY) / centerY) * -6;
+            const rotateY = ((x - centerX) / centerX) * 8;
+            memorandumCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
         });
 
-        cardWrapper.addEventListener('mouseleave', () => {
-            startupCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        memorandumWrapper.addEventListener('mouseleave', () => {
+            memorandumCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg)';
         });
     }
 
-    // Sound toggle
+    // Audio SFX toggle
     if (btnAudio) {
         btnAudio.addEventListener('click', () => {
             const enabled = window.cyberAudio.toggle();
             btnAudio.innerHTML = enabled ? '🔊' : '🔇';
-            showToast(enabled ? 'Звуковые эффекты включены' : 'Звук отключен');
+            showToast(enabled ? 'Звуковые оповещения включены' : 'Звук отключен');
             if (enabled) window.cyberAudio.playClick();
         });
     }
 
     // Toast Notifications
-    function showToast(message, type = 'info') {
+    function showToast(message) {
         const container = document.getElementById('toast-container');
         if (!container) return;
 
         const toast = document.createElement('div');
-        toast.className = 'toast';
-        toast.innerHTML = `<span>⚡</span> <span>${message}</span>`;
+        toast.className = 'toast-loft';
+        toast.textContent = message;
         container.appendChild(toast);
 
         setTimeout(() => {
             toast.style.transition = 'all 0.3s ease';
             toast.style.opacity = '0';
-            toast.style.transform = 'translateX(100%)';
+            toast.style.transform = 'translateY(15px)';
             setTimeout(() => toast.remove(), 300);
         }, 3200);
+    }
+
+    // Render Syndicate Table from Database
+    function renderSyndicateLeaderboard() {
+        if (!syndicateTableBody) return;
+        const investors = window.investorDB.getInvestors();
+        syndicateTableBody.innerHTML = '';
+
+        investors.forEach((inv, index) => {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="investor-rank">#${index + 1}</td>
+                <td>
+                    <div class="investor-name-cell">
+                        <span>${inv.name}</span>
+                        ${inv.verified ? '<span class="badge-verified">VERIFIED</span>' : ''}
+                    </div>
+                </td>
+                <td class="investor-amount">$${inv.amountUSDT.toLocaleString()} USDT</td>
+                <td style="color: var(--accent-sand);">${inv.startup}</td>
+                <td style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-muted);">${inv.date}</td>
+            `;
+            syndicateTableBody.appendChild(tr);
+        });
+
+        // Update top metrics
+        const total = window.investorDB.getTotalCapital();
+        if (metricTotalCapital) metricTotalCapital.textContent = `$${total.toLocaleString()}`;
+        if (metricActiveDeals) metricActiveDeals.textContent = `${investors.length} СИНДИКАТОВ`;
     }
 
     // Render Startup Data into UI
@@ -124,33 +160,31 @@ document.addEventListener('DOMContentLoaded', () => {
         pitchSolution.textContent = data.solution;
         pitchBackers.textContent = data.backers;
         pitchAudit.textContent = data.audit;
-        sourceBadge.innerHTML = `<span>⚡</span> ${data.source}`;
+        sourceStamp.textContent = `СТАТУС: ${data.source}`;
 
-        // Tokenomics Bar & Legend
-        tokenomicsBar.innerHTML = '';
-        tokenomicsLegend.innerHTML = '';
-        const colors = ['#00f0ff', '#9d4edd', '#ff007a', '#00ff88', '#ffd700'];
+        // Cap Table Progress Bar
+        capTableBar.innerHTML = '';
+        capTableLegend.innerHTML = '';
+        const palette = ['#e0b589', '#c89666', '#8892b0', '#646a7c'];
 
         if (Array.isArray(data.tokenomics)) {
             data.tokenomics.forEach((item, idx) => {
-                const color = colors[idx % colors.length];
+                const color = palette[idx % palette.length];
                 
-                // Bar slice
                 const slice = document.createElement('div');
-                slice.className = 'tokenomics-slice';
+                slice.className = 'cap-table-slice';
                 slice.style.width = `${item.percent}%`;
                 slice.style.backgroundColor = color;
                 slice.title = `${item.label}: ${item.percent}%`;
-                tokenomicsBar.appendChild(slice);
+                capTableBar.appendChild(slice);
 
-                // Legend item
                 const legend = document.createElement('div');
-                legend.className = 'legend-item';
+                legend.className = 'cap-legend-item';
                 legend.innerHTML = `
-                    <div class="legend-color" style="background-color: ${color}"></div>
-                    <span><strong>${item.percent}%</strong> ${item.label}</span>
+                    <div class="cap-legend-color" style="background-color: ${color}"></div>
+                    <span><strong>${item.percent}%</strong> — ${item.label}</span>
                 `;
-                tokenomicsLegend.appendChild(legend);
+                capTableLegend.appendChild(legend);
             });
         }
 
@@ -158,18 +192,17 @@ document.addEventListener('DOMContentLoaded', () => {
         pitchTags.innerHTML = '';
         if (Array.isArray(data.tags)) {
             data.tags.forEach(tag => {
-                const badge = document.createElement('span');
-                badge.className = 'tag-badge';
-                badge.textContent = tag;
-                pitchTags.appendChild(badge);
+                const item = document.createElement('span');
+                item.className = 'tag-item';
+                item.textContent = tag;
+                pitchTags.appendChild(item);
             });
         }
 
-        // Update favorite button state
         updateFavButton();
     }
 
-    // Generate Idea Action
+    // Generate Action
     async function handleGenerate() {
         if (isGenerating) return;
         isGenerating = true;
@@ -178,9 +211,8 @@ document.addEventListener('DOMContentLoaded', () => {
         scene.triggerBoost();
 
         btnGenerate.disabled = true;
-        btnGenerate.innerHTML = '<span>⚡ КВАНТОВЫЙ СИНТЕЗ...</span>';
-        startupCard.style.opacity = '0.4';
-        startupCard.style.filter = 'blur(4px)';
+        btnGenerate.innerHTML = '<span>⏳ АНАЛИЗ ИНВЕСТИЦИОННОЙ МОДЕЛИ...</span>';
+        memorandumCard.style.opacity = '0.5';
 
         try {
             const data = await window.startupGenerator.generate();
@@ -188,97 +220,73 @@ document.addEventListener('DOMContentLoaded', () => {
             window.cyberAudio.playSuccess();
         } catch (err) {
             console.error(err);
-            showToast('Ошибка генерации, переключено на резервный алгоритм', 'error');
             const fallback = window.startupGenerator.generateQuantum();
             renderStartup(fallback);
         } finally {
-            startupCard.style.opacity = '1';
-            startupCard.style.filter = 'none';
+            memorandumCard.style.opacity = '1';
             btnGenerate.disabled = false;
-            btnGenerate.innerHTML = '<span>🎲 СГЕНЕРИРОВАТЬ СТАРТАП</span><div class="btn-glow"></div>';
+            btnGenerate.innerHTML = '<span>СГЕНЕРИРОВАТЬ МЕМОРАНДУМ</span>';
             isGenerating = false;
         }
     }
 
     btnGenerate.addEventListener('click', handleGenerate);
 
-    // Mode Switcher Buttons (Quantum vs Neural)
-    modeBtns.forEach(btn => {
+    // Switch buttons (Quantum vs Neural)
+    switchBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            modeBtns.forEach(b => b.classList.remove('active'));
+            switchBtns.forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
             const mode = btn.dataset.mode;
             window.startupGenerator.setMode(mode);
             window.cyberAudio.playClick();
-            showToast(`Активирован: ${mode === 'neural' ? '🧠 Режим Gemini AI' : '⚡ Квантовый генератор'}`);
+            showToast(`Активирован: ${mode === 'neural' ? 'Нейросеть Gemini 2.5' : 'Квантовый модуль'}`);
         });
     });
 
-    // Copy Pitch Deck
-    if (btnCopy) {
-        btnCopy.addEventListener('click', () => {
+    // Copy Memorandum
+    if (btnCopyMemo) {
+        btnCopyMemo.addEventListener('click', () => {
             if (!currentStartup) return;
             window.cyberAudio.playClick();
 
-            const pitchText = `🚀 СТАРТАП: ${currentStartup.name} (${currentStartup.ticker})
-${currentStartup.stage}
+            const memoText = `ИНВЕСТИЦИОННЫЙ МЕМОРАНДУМ [КОНФИДЕНЦИАЛЬНО]
+СИНДИКАТ: ${currentStartup.name} (${currentStartup.ticker})
+ОЦЕНКА: ${currentStartup.stage}
 
-💬 «${currentStartup.tagline}»
+ТЕЗИС:
+${currentStartup.tagline}
 
-🎯 ПРОБЛЕМА:
+ПРОБЛЕМА:
 ${currentStartup.problem}
 
-💡 РЕШЕНИЕ:
+РЕШЕНИЕ:
 ${currentStartup.solution}
 
-📊 ТОКЕНОМИКА:
+СТРУКТУРА КАПИТАЛА:
 ${currentStartup.tokenomics ? currentStartup.tokenomics.map(t => `• ${t.percent}% — ${t.label}`).join('\n') : ''}
 
-👑 ВЕДУЩИЕ ИНВЕСТОРЫ: ${currentStartup.backers}
-🛡️ АУДИТ: ${currentStartup.audit}
-🏷️ ${currentStartup.tags ? currentStartup.tags.join(' ') : ''}
+ВЕДУЩИЕ ИНВЕСТОРЫ: ${currentStartup.backers}
+АУДИТ БЕЗОПАСНОСТИ: ${currentStartup.audit}
 
-🌐 Сгенерировано на DELUSION.DAO — Web3 Генератор Бредовых Стартапов`;
+Реквизиты фонда для аллокации (TRON/USDT): TVKNb8MWNfxue3dQJxKB9oXT5h9Y88PYb5
+Оформлено через LOFT CAPITAL PARTNERS`;
 
-            navigator.clipboard.writeText(pitchText).then(() => {
-                showToast('📋 Питч скопирован в буфер обмена!');
+            navigator.clipboard.writeText(memoText).then(() => {
+                showToast('📋 Меморандум скопирован в буфер обмена');
                 window.cyberAudio.playSuccess();
             }).catch(() => {
-                showToast('Не удалось скопировать', 'error');
+                showToast('Ошибка копирования');
             });
         });
     }
 
-    // Share to Telegram
-    if (btnShareTg) {
-        btnShareTg.addEventListener('click', () => {
-            if (!currentStartup) return;
-            window.cyberAudio.playClick();
-            const text = encodeURIComponent(`Глянь какой бредовый Web3-стартап я нашел: ${currentStartup.name} (${currentStartup.ticker})! «${currentStartup.tagline}» 😂`);
-            const url = encodeURIComponent(window.location.href);
-            window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank');
-        });
-    }
-
-    // Share to X (Twitter)
-    if (btnShareX) {
-        btnShareX.addEventListener('click', () => {
-            if (!currentStartup) return;
-            window.cyberAudio.playClick();
-            const text = encodeURIComponent(`Just invested all my savings into ${currentStartup.name} (${currentStartup.ticker})! 🚀
-«${currentStartup.tagline}»
-
-Built on @delusion_dao Web3!`);
-            window.open(`https://twitter.com/intent/tweet?text=${text}`, '_blank');
-        });
-    }
-
-    // Favorites Logic
+    // Favorites
     function updateFavButton() {
         if (!btnFav || !currentStartup) return;
         const isFav = favorites.some(f => f.name === currentStartup.name);
-        btnFav.innerHTML = isFav ? '❤️ В избранном' : '🤍 В избранное';
-        btnFav.style.color = isFav ? 'var(--neon-pink)' : '';
+        btnFav.innerHTML = isFav ? '★ В портфеле' : '☆ В портфель';
+        btnFav.style.color = isFav ? 'var(--accent-bronze)' : '';
     }
 
     if (btnFav) {
@@ -288,93 +296,132 @@ Built on @delusion_dao Web3!`);
             const idx = favorites.findIndex(f => f.name === currentStartup.name);
             if (idx >= 0) {
                 favorites.splice(idx, 1);
-                showToast('Удалено из избранного');
+                showToast('Удалено из портфеля');
             } else {
                 favorites.unshift(currentStartup);
                 if (favorites.length > 30) favorites.pop();
-                showToast('❤️ Добавлено в избранное!');
+                showToast('★ Добавлено в инвестиционный портфель');
             }
-            localStorage.setItem('delusion_favorites', JSON.stringify(favorites));
+            localStorage.setItem('loft_favorites', JSON.stringify(favorites));
             updateFavButton();
         });
     }
 
-    // Invest Modal & Simulation
-    if (btnInvest) {
-        btnInvest.addEventListener('click', () => {
+    // Open Invest Modal
+    function openInvestModal() {
+        window.cyberAudio.playClick();
+        if (inputInvestorName && !inputInvestorName.value && currentAddress) {
+            inputInvestorName.value = `Синдикат ${currentAddress}`;
+        }
+        openModal(modalInvest);
+    }
+
+    if (btnInvestNow) btnInvestNow.addEventListener('click', openInvestModal);
+    if (btnOpenInvestTop) btnOpenInvestTop.addEventListener('click', openInvestModal);
+
+    // Copy Vault Address
+    if (btnCopyVaultAddress) {
+        btnCopyVaultAddress.addEventListener('click', () => {
             window.cyberAudio.playClick();
-            openModal(modalInvest);
-            document.getElementById('invest-token-sym').textContent = currentStartup ? currentStartup.ticker : '$HYPE';
+            navigator.clipboard.writeText(targetAddress).then(() => {
+                showToast('✅ TRON адрес скопирован в буфер: ' + targetAddress);
+                btnCopyVaultAddress.textContent = 'Скопировано!';
+                setTimeout(() => btnCopyVaultAddress.textContent = 'Копировать', 2000);
+            });
         });
     }
 
-    const btnConfirmInvest = document.getElementById('btn-confirm-invest');
-    if (btnConfirmInvest) {
-        btnConfirmInvest.addEventListener('click', () => {
+    // Direct TronLink Transfer
+    if (btnDirectTronLink) {
+        btnDirectTronLink.addEventListener('click', async () => {
+            window.cyberAudio.playClick();
+            const amount = parseFloat(inputInvestAmount.value) || 10;
+            try {
+                showToast('⏳ Инициализация транзакции в TronLink...');
+                const tx = await window.walletService.sendTronTransaction(amount);
+                showToast('🎉 Транзакция отправлена в блокчейн TRON!');
+                if (inputTxHash) inputTxHash.value = tx || 'TronLink-Tx';
+            } catch (err) {
+                showToast('TronLink: ' + (err.message || 'Ошибка отправки'));
+            }
+        });
+    }
+
+    // Submit Investment to Database & Leaderboard
+    if (btnSubmitInvestment) {
+        btnSubmitInvestment.addEventListener('click', () => {
             window.cyberAudio.playCash();
-            btnConfirmInvest.disabled = true;
-            btnConfirmInvest.textContent = '⏳ Минтинг транзакции в L2...';
+            const name = inputInvestorName.value.trim() || 'Инкогнито Инвестор';
+            const amount = parseFloat(inputInvestAmount.value) || 5000;
+            const txHash = inputTxHash.value.trim();
+            const startup = currentStartup ? currentStartup.name : 'KebabChain 3.0';
 
-            setTimeout(() => {
-                closeModal(modalInvest);
-                btnConfirmInvest.disabled = false;
-                btnConfirmInvest.textContent = 'Подтвердить инвестицию';
+            window.investorDB.addInvestment(name, currentAddress || targetAddress, amount, startup, txHash);
+            renderSyndicateLeaderboard();
 
-                // Confetti blast!
-                if (typeof confetti === 'function') {
-                    confetti({
-                        particleCount: 120,
-                        spread: 80,
-                        origin: { y: 0.6 },
-                        colors: ['#00f0ff', '#ff007a', '#00ff88', '#ffd700']
-                    });
-                }
+            closeModal(modalInvest);
 
-                showToast(`🎉 Успешно! Вы инвестировали 10 ETH в ${currentStartup ? currentStartup.ticker : 'стартап'}!`);
-            }, 1200);
+            // Confetti
+            if (typeof confetti === 'function') {
+                confetti({
+                    particleCount: 100,
+                    spread: 70,
+                    origin: { y: 0.6 },
+                    colors: ['#e0b589', '#c89666', '#34d399', '#ffffff']
+                });
+            }
+
+            showToast(`Успешно! ${name} внесен в реестр Топ-Инвесторов на $${amount.toLocaleString()} USDT!`);
         });
     }
 
-    // Wallet Connect Logic
-    if (btnWallet) {
-        btnWallet.addEventListener('click', () => {
+    // Connect Wallet Modal & Options
+    if (btnConnectWallet) {
+        btnConnectWallet.addEventListener('click', () => {
             window.cyberAudio.playClick();
             if (!walletConnected) {
                 openModal(modalWallet);
             } else {
-                showToast(`Подключен: ${walletAddress}`);
+                showToast(`Подключено: ${currentAddress}`);
             }
         });
     }
 
-    document.querySelectorAll('.wallet-option').forEach(opt => {
-        opt.addEventListener('click', () => {
-            window.cyberAudio.playSuccess();
-            closeModal(modalWallet);
+    document.querySelectorAll('.wallet-row-item').forEach(row => {
+        row.addEventListener('click', async () => {
+            const type = row.dataset.wallet;
+            window.cyberAudio.playClick();
 
-            // Generate fake web3 address
-            const randHex = Math.random().toString(16).substring(2, 6);
-            walletAddress = `0x71C...${randHex}`;
-            walletConnected = true;
+            try {
+                let res;
+                if (type === 'tronlink') {
+                    res = await window.walletService.connectTronLink();
+                } else if (type === 'metamask') {
+                    res = await window.walletService.connectMetaMask();
+                } else if (type === 'phantom') {
+                    res = await window.walletService.connectPhantom();
+                } else {
+                    res = window.walletService.connectSimulated(row.querySelector('.wallet-row-name').textContent);
+                }
 
-            btnWallet.classList.add('connected');
-            walletText.textContent = `${walletAddress} (420.69 $DEL)`;
-            showToast(`Кошелек успешно подключен: ${walletAddress}`);
-
-            // Confetti
-            if (typeof confetti === 'function') {
-                confetti({ particleCount: 50, spread: 60, origin: { y: 0.2 } });
+                currentAddress = res.address;
+                walletConnected = true;
+                btnConnectWallet.classList.add('active');
+                walletLabel.textContent = `${res.wallet}: ${currentAddress.slice(0, 6)}...`;
+                closeModal(modalWallet);
+                showToast(`✅ ${res.wallet} успешно подключен!`);
+                window.cyberAudio.playSuccess();
+            } catch (e) {
+                showToast(`Не удалось подключить: ${e.message}`);
             }
         });
     });
 
-    // Settings Modal (API Key)
+    // Settings Modal
     if (btnSettings) {
         btnSettings.addEventListener('click', () => {
             window.cyberAudio.playClick();
-            if (inputApiKey) {
-                inputApiKey.value = window.startupGenerator.apiKey || '';
-            }
+            if (inputApiKey) inputApiKey.value = window.startupGenerator.apiKey || '';
             openModal(modalSettings);
         });
     }
@@ -385,38 +432,38 @@ Built on @delusion_dao Web3!`);
             const key = inputApiKey.value.trim();
             window.startupGenerator.setApiKey(key);
             closeModal(modalSettings);
-            showToast('✅ Gemini API ключ сохранен в локальном хранилище!');
+            showToast('✅ Ключ Gemini API сохранен в браузере');
         });
     }
 
-    // History Modal
-    if (btnHistory) {
-        btnHistory.addEventListener('click', () => {
+    // Favorites / Portfolio Modal
+    if (btnFavorites) {
+        btnFavorites.addEventListener('click', () => {
             window.cyberAudio.playClick();
-            renderHistoryList();
+            renderFavoritesList();
             openModal(modalHistory);
         });
     }
 
-    function renderHistoryList() {
+    function renderFavoritesList() {
         const container = document.getElementById('history-list');
         if (!container) return;
         container.innerHTML = '';
 
         if (favorites.length === 0) {
-            container.innerHTML = '<div style="color: var(--text-muted); text-align: center; padding: 20px;">Нет сохраненных стартапов. Нажмите «В избранное», чтобы сохранить!</div>';
+            container.innerHTML = '<div style="color: var(--text-muted); text-align: center; padding: 24px;">В инвестиционном портфеле пока нет проектов.</div>';
             return;
         }
 
         favorites.forEach(item => {
             const row = document.createElement('div');
-            row.className = 'wallet-option';
+            row.className = 'wallet-row-item';
             row.innerHTML = `
-                <div class="wallet-opt-left">
-                    <span style="color: var(--neon-cyan); font-weight: 700;">${item.ticker}</span>
-                    <span>${item.name}</span>
+                <div>
+                    <span style="color: var(--accent-bronze); font-weight: 700;">${item.ticker}</span>
+                    <span style="margin-left: 8px;">${item.name}</span>
                 </div>
-                <button class="btn-secondary" style="padding: 4px 10px; font-size: 0.75rem;">Открыть</button>
+                <button class="btn-loft-secondary" style="padding: 4px 10px; font-size: 0.75rem;">Открыть</button>
             `;
             row.querySelector('button').addEventListener('click', () => {
                 closeModal(modalHistory);
@@ -429,35 +476,32 @@ Built on @delusion_dao Web3!`);
 
     // Modal Helpers
     function openModal(modal) {
-        if (!modal) return;
-        modal.classList.add('open');
+        if (modal) modal.classList.add('open');
     }
-
     function closeModal(modal) {
-        if (!modal) return;
-        modal.classList.remove('open');
+        if (modal) modal.classList.remove('open');
     }
 
-    document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-        backdrop.addEventListener('click', (e) => {
-            if (e.target === backdrop) closeModal(backdrop);
+    document.querySelectorAll('.loft-modal-backdrop').forEach(b => {
+        b.addEventListener('click', (e) => {
+            if (e.target === b) closeModal(b);
         });
     });
 
-    document.querySelectorAll('.btn-close').forEach(btn => {
+    document.querySelectorAll('.btn-close-loft').forEach(btn => {
         btn.addEventListener('click', () => {
-            const modal = btn.closest('.modal-backdrop');
-            if (modal) closeModal(modal);
+            const m = btn.closest('.loft-modal-backdrop');
+            if (m) closeModal(m);
         });
     });
 
-    // Keyboard ESC to close modals
     window.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
-            document.querySelectorAll('.modal-backdrop.open').forEach(closeModal);
+            document.querySelectorAll('.loft-modal-backdrop.open').forEach(closeModal);
         }
     });
 
-    // First auto-generation on launch!
+    // Initial render
+    renderSyndicateLeaderboard();
     handleGenerate();
 });

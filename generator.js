@@ -1,122 +1,102 @@
-// Startup Idea Generator Engine: Quantum (Algorithmic) + Neural (Gemini AI)
+// Loft Venture Syndicate - Confidential Investment Memo Generator
+// Supports both Quantum Core (Offline) and Gemini 2.5 Flash (Online)
 
-const QUANTUM_DATA = {
+const LOFT_SYNDICATE_DATA = {
     names: [
-        { prefix: "Solana", root: "Babka", suffix: "DAO" },
-        { prefix: "Kebab", root: "Chain", suffix: "3.0" },
-        { prefix: "Neuro", root: "Drist", suffix: "AI" },
-        { prefix: "ProofOf", root: "Sleep", suffix: "Protocol" },
-        { prefix: "Borsch", root: "Rollup", suffix: "L2" },
-        { prefix: "Tinder", root: "ForGopniks", suffix: ".eth" },
-        { prefix: "Zk", root: "Pelmeni", suffix: "Network" },
-        { prefix: "Hamster", root: "Kombat", suffix: "Arbitrage" },
-        { prefix: "Alco", root: "Oracle", suffix: "DePIN" },
-        { prefix: "Doshirak", root: "Yield", suffix: "Farm" },
-        { prefix: "GigaChad", root: "Stake", suffix: "Labs" },
-        { prefix: "Lada", root: "Metaverse", suffix: "Global" },
-        { prefix: "Crypto", root: "Kvas", suffix: "Liquidity" },
-        { prefix: "Pivko", root: "Swap", suffix: "DEX" },
-        { prefix: "Banya", root: "Consensus", suffix: "Core" },
-        { prefix: "Grandma", root: "Arbitrage", suffix: "Ventures" },
-        { prefix: "CatNip", root: "Hyperdrive", suffix: "X" },
-        { prefix: "SnoopDogg", root: "L3", suffix: "Vibe" },
-        { prefix: "DeFi", root: "Garlic", suffix: "Vault" },
-        { prefix: "Ochko", root: "Validator", suffix: "Node" }
+        { prefix: "Solana", root: "Babka", suffix: "Consortium" },
+        { prefix: "KebabChain", root: "Infrastructure", suffix: "L2" },
+        { prefix: "ProofOfSleep", root: "Protocol", suffix: "Capital" },
+        { prefix: "ZkPelmeni", root: "Fabric", suffix: "Network" },
+        { prefix: "Grandma", root: "Arbitrage", suffix: "Syndicate" },
+        { prefix: "Doshirak", root: "Yield", suffix: "Optimizer" },
+        { prefix: "Borsch", root: "Rollup", suffix: "Core" },
+        { prefix: "NeuroDrist", root: "Intelligence", suffix: "Ventures" },
+        { prefix: "AlcoOracle", root: "DePIN", suffix: "Global" },
+        { prefix: "GigaChad", root: "Staking", suffix: "Institutional" },
+        { prefix: "Lada", root: "Metaverse", suffix: "Securities" },
+        { prefix: "CryptoKvas", root: "Liquidity", suffix: "Fund" },
+        { prefix: "PivkoSwap", root: "Prime", suffix: "Brokerage" },
+        { prefix: "Banya", root: "Consensus", suffix: "Group" },
+        { prefix: "CatNip", root: "Hyperdrive", suffix: "Holdings" }
     ],
     tickers: [
-        "$BABKA", "$KEBAB", "$DRIST", "$PELMEN", "$SHAU", "$SLEEP",
-        "$DOSHA", "$KVAS", "$PIVKO", "$GOP", "$CHAD", "$SCAM",
-        "$HOODLE", "$ZXC", "$BORSCH", "$LADA", "$BANYA", "$HYPE"
+        "$BABKA", "$KEBAB", "$SLEEP", "$PELMEN", "$DOSHA", "$BORSCH",
+        "$DRIST", "$KVAS", "$PIVKO", "$CHAD", "$LADA", "$BANYA", "$HYPE"
     ],
     stages: [
-        "🔥 PRE-SEED: $69,420,000 FDV",
-        "🚀 SERIES A: $420,000,000 (Оплачено бутербродами)",
-        "💎 SEED ROUND: $13,370,000 (В долг у мамы)",
-        "⚡ STEALTH MODE: $999,000,000 (Никто не знает, что мы делаем)",
-        "🦄 UNICORN: $1,000,000,000 (Оценка по версии чата в Telegram)",
-        "🚨 EXIT SCAM READY: $88,000,000"
+        "SERIES SEED: $69,420,000 POST-MONEY VALUATION",
+        "SERIES A: $420,000,000 (LEAD: ANDREESSEN HOROWITZ’S HAMSTER)",
+        "GROWTH ROUND: $1,000,000,000 (CONFIDENTIAL CONSORTIUM)",
+        "INSTITUTIONAL SYNDICATE: $13,370,000 ALLOCATION",
+        "MEZZANINE PRE-IPO: $888,000,000 EVALUATION"
     ],
     taglines: [
-        "«Если это выглядит как скам, звучит как скам и пахнет шаурмой — значит, это будущее финансов.»",
-        "«Переводим бабушек через дорогу по смарт-контрактам на Layer-3 с нулевым разглашением.»",
-        "«Майнинг мем-коинов силой храпа и частотой пульса при просмотре хорроров на ночь.»",
-        "«Децентрализованный авто-майнинг на микроволновках соседей через домашний Wi-Fi.»",
-        "«Первый в мире AI-сомелье для быстрорастворимой лапши с консенсусом Proof-of-Mayonnaise.»",
-        "«NFT-сертификаты на занятую очередь в поликлинике с динамическим роялти участковому терапевту.»",
-        "«Tinder для дворовых голубей с автоматическим свопом хлебных крошек на Solana.»",
-        "«Стейкинг тоски и депрессии перед сессией с гарантированной ликвидацией деканатом.»",
-        "«Голосование в DAO за то, кто сегодня моет сковородку после жареной картошки.»",
-        "«Zk-Rollup для маршруток: передача за проезд валидируется за 0.0001 секунды без сдачи.»"
+        "«Институциональная токенизация неэффективных бытовых процессов с математически доказанной нулевой целесообразностью.»",
+        "«Интеграция бабушек у подъезда в децентрализованный ончейн-консилиум с правом вето и консенсусом Proof-of-Bench.»",
+        "«Монетизация фаз глубокого сна и храпа через децентрализованный ликвидный стейкинг токенов $SLEEP.»",
+        "«Первый суверенный DePIN-протокол для верификации чесночного соуса без раскрытия формулы (ZK-Proof-of-Garlic).»",
+        "«Перенос прав владения гаражами в кооперативе 'Заря' в динамические RWA-активы на Layer-3.»",
+        "«Алгоритмический AI-сомелье для быстрорастворимой лапши с автоматическим ребалансированием специй на DEX.»",
+        "«Секьюритизация панических атак студентов перед защитой диплома в высокорисковые синтетические деривативы.»"
     ],
     problems: [
-        "Традиционная финансовая система Уолл-Стрит не позволяет заложить гараж дяди Толи под смарт-контракт на шаурму.",
-        "Человечество тратит до 8 часов в сутки на сон, не получая за это ни единого крипто-токена в стейкинг-пул.",
-        "Бабушки у подъезда осуждают людей абсолютно бесплатно, упуская колоссальную монетизацию социальной репутации.",
-        "При покупке шаурмы на вокзале нет криптографического ZK-доказательства, что мясо не лаяло вчера в полночь.",
-        "Миллионы хомяков ежедневно стирают пальцы об экраны смартфонов, но не могут купить себе даже пачку виртуальных сухариков.",
-        "Студенты впадают в депрессию перед сессией вместо того, чтобы токенизировать свои панические атаки на DEX.",
-        "Люди стоят в очереди в МФЦ по 4 часа, пока блокчейн простаивает без валидации талончиков с буквой «Б».",
-        "Коты орут в 4 часа утра без токеномики и не генерируют ликвидность в DeFi-секторе."
+        "Традиционный венчурный капитал не позволяет заложить гараж дяди Толи под залог смарт-контракта на шаурму в рамках Базель III.",
+        "Человеческий капитал теряет свыше 2,800 часов в год во время сна, не обеспечивая при этом институциональную доходность в пулах ликвидности.",
+        "Социальный капитал бабушек у подъезда не монетизируется, несмотря на 99.8% точность устного предиктивного анализа прохожих.",
+        "Рынок уличного питания объемом $40B страдает от отсутствия криптографического ZK-аудита происхождения мясных субпродуктов.",
+        "Студенты старших курсов испытывают экзистенциальный кризис в изоляции от распределенных реестров и глобального кредитования."
     ],
     solutions: [
-        "Запуск DePIN-сети умных лавочек с биометрическим консенсусом Proof-of-Kvas и мгновенным шардингом сплетен.",
-        "Внедрение алгоритма ZK-Proof-of-Garlic для валидации чесночного соуса без раскрытия секретного рецепта Ашота.",
-        "Стейкинг храпа через смарт-часы: чем громче и мелодичнее храпишь, тем выше APY в пуле ликвидности $SLEEP.",
-        "Автономный AI-агент, который за 0.001 SOL круглосуточно доказывает свою правоту в комментариях ВКонтакте.",
-        "Квантовый блокчейн на базе старых стиральных машин 'Малютка' с пропускной способностью 10,000 TPS (Tashil Per Second).",
-        "Динамические NFT-талоны к врачу: их можно продать на OpenSea за 5 минут до приема с наценкой в 300%.",
-        "Токенизация мурчания кошек в синтетические активы с автоматическим выкупом вискаса по смарт-контракту.",
-        "Суверенный Layer-2 роллап для шашлыка: угли раздуваются транзакциями валидаторов в реальном времени."
+        "Развертывание суверенного Layer-2 роллапа с консенсусом Proof-of-Kvas и мгновенным клирингом бытовых транзакций.",
+        "Внедрение протокола ZK-Proof-of-Garlic для ончейн-верификации качества соуса Ашота с нулевым разглашением рецептуры.",
+        "Стейкинг биометрических колебаний храпа: автоматический налог на бессонницу и выплата дивидендов держателям пула $SLEEP.",
+        "DePIN-сеть умных лавочек с биометрической идентификацией и автоматическим распределением роялти за сплетни.",
+        "Квантовый валидатор на базе стиральных машин 'Малютка' с частотой 10,000 TPS (Transactions Per Second)."
     ],
-    tokenomicsPatterns: [
+    tokenomics: [
         [
-            { label: "Фаундерам на билет в Дубай и желтый Lambo", percent: 65 },
-            { label: "Маркетинг у крипто-инфлюенсеров", percent: 20 },
-            { label: "Судебные издержки и взятки SEC", percent: 14 },
-            { label: "Аирдроп комьюнити (вестинг 99 лет)", percent: 1 }
+            { label: "Основателям синдиката (активы в Дубае)", percent: 65 },
+            { label: "Институциональный маркетинг и лоббирование", percent: 20 },
+            { label: "Резервный фонд на споры с регуляторами", percent: 14 },
+            { label: "Публичный аирдроп розничным инвесторам (вестинг 99 лет)", percent: 1 }
         ],
         [
-            { label: "Пул ликвидности на покупку шаурмы", percent: 50 },
-            { label: "Команде разработчиков (школьникам)", percent: 30 },
-            { label: "Резервный фонд на случай Rug Pull", percent: 15 },
-            { label: "Дроп холдерам $BABKA", percent: 5 }
+            { label: "Пул ликвидности для выкупа шаурмы", percent: 55 },
+            { label: "Команде количественных аналитиков", percent: 25 },
+            { label: "Страховой фонд на случай ликвидации", percent: 15 },
+            { label: "Держателям облигаций $BABKA", percent: 5 }
         ],
         [
-            { label: "Взятка нейросети, чтобы не захватила мир", percent: 45 },
-            { label: "Закупка пива и чипсов для хакатона", percent: 35 },
-            { label: "Аудит смарт-контракта у гадалки", percent: 15 },
-            { label: "Сжигание токенов в реальном костре", percent: 5 }
+            { label: "Инфраструктурный фонд серверов и питания", percent: 50 },
+            { label: "Выплаты юридическим советникам в Женеве", percent: 30 },
+            { label: "Аудит безопасности в закрытом банном клубе", percent: 15 },
+            { label: "Сжигание избыточной массы токенов", percent: 5 }
         ]
     ],
     backers: [
-        "Andreessen Horowitz's Hamster Ventures",
-        "Илон Маск (случайно нажал ретвит в 4:19 утра)",
-        "Фонд Развития Гаражного Кооператива «Заря»",
-        "Vitalik Buterin's Anime Pillow DAO",
-        "Павел Дуров (мысленно поддержал, качая пресс)",
-        "Фонд Деда Максима и Кот Борис Capital",
-        "Sequoia Capital's Janitor",
-        "Tiger Global (перепутали тикер с Apple)"
+        "Syndicate Alpha Partners & Hamster Ventures",
+        "Elon Musk Family Office (Confidential Late-Night Retweet)",
+        "Патриаршие Angels Club & Кот Борис Capital",
+        "Фонд Развития Гаражных Инноваций Купчино",
+        "Vitalik Buterin Anime Pillow Memorial DAO",
+        "Geneva Private Wealth & Дед Максим Holdings"
     ],
     audits: [
-        "🛡️ 100% Уязвимый (Бэкдор оставлен специально для фаундера) — CertiK No-Cap",
-        "🛡️ Проверено бабкой у подъезда: 'Наркоманы, но график зеленый'",
-        "🛡️ Аудит пройден в бане с валидаторами под шашлычок — 0 критических уязвимостей",
-        "🛡️ Код написан первокурсником в трамвае за банку энергетика — ScamShield Certified",
-        "🛡️ Смарт-контракт настолько запутан, что даже хакеры отказались его взламывать"
+        "🛡️ Проведен закрытый аудит: 100% институциональная уязвимость (CertiK No-Cap Verified)",
+        "🛡️ Заверен старшим консилиумом подъезда №4: «Надежный инструмент с умеренной волатильностью»",
+        "🛡️ Соответствие стандартам безопасности: Бэкдор сохранен для экстренного вывода ликвидности фаундерами",
+        "🛡️ Сертифицировано швейцарским бюро ScamShield Private: Риск ликвидации 99.9%"
     ],
-    tagsPool: [
-        ["#Web3", "#Solana", "#DePIN", "#AI-Hype", "#ProofOfSleep"],
-        ["#DeFi", "#Layer3", "#ZK-Kebab", "#MemeFi", "#ExitScam"],
-        ["#GrandmaDAO", "#Crypto", "#Staking", "#1000x", "#PumpIt"],
-        ["#HamsterFi", "#TonEco", "#Airdrop", "#SmartContract", "#Degens"]
+    tags: [
+        ["#Institutional", "#DePIN", "#Layer2", "#RWA", "#ZeroKnowledge"],
+        ["#SyndicateSeed", "#Solana", "#YieldOptimization", "#Arbitrage"],
+        ["#PrivateEquity", "#AutonomousAI", "#Staking", "#HedgeFund"]
     ]
 };
 
 class StartupGenerator {
     constructor() {
-        this.currentMode = 'quantum'; // 'quantum' or 'neural'
-        // API key securely read from localStorage (not committed to public git)
+        this.currentMode = 'quantum';
         this.apiKey = localStorage.getItem('gemini_api_key') || '';
         this.modelName = 'gemini-2.5-flash';
     }
@@ -130,22 +110,22 @@ class StartupGenerator {
         localStorage.setItem('gemini_api_key', this.apiKey);
     }
 
-    getRandomItem(arr) {
+    getRandom(arr) {
         return arr[Math.floor(Math.random() * arr.length)];
     }
 
     generateQuantum() {
-        const nameObj = this.getRandomItem(QUANTUM_DATA.names);
-        const name = `${nameObj.prefix}${nameObj.root} ${nameObj.suffix}`;
-        const ticker = this.getRandomItem(QUANTUM_DATA.tickers);
-        const stage = this.getRandomItem(QUANTUM_DATA.stages);
-        const tagline = this.getRandomItem(QUANTUM_DATA.taglines);
-        const problem = this.getRandomItem(QUANTUM_DATA.problems);
-        const solution = this.getRandomItem(QUANTUM_DATA.solutions);
-        const tokenomics = this.getRandomItem(QUANTUM_DATA.tokenomicsPatterns);
-        const backers = this.getRandomItem(QUANTUM_DATA.backers);
-        const audit = this.getRandomItem(QUANTUM_DATA.audits);
-        const tags = this.getRandomItem(QUANTUM_DATA.tagsPool);
+        const nameObj = this.getRandom(LOFT_SYNDICATE_DATA.names);
+        const name = `${nameObj.prefix} ${nameObj.root} ${nameObj.suffix}`;
+        const ticker = this.getRandom(LOFT_SYNDICATE_DATA.tickers);
+        const stage = this.getRandom(LOFT_SYNDICATE_DATA.stages);
+        const tagline = this.getRandom(LOFT_SYNDICATE_DATA.taglines);
+        const problem = this.getRandom(LOFT_SYNDICATE_DATA.problems);
+        const solution = this.getRandom(LOFT_SYNDICATE_DATA.solutions);
+        const tokenomics = this.getRandom(LOFT_SYNDICATE_DATA.tokenomics);
+        const backers = this.getRandom(LOFT_SYNDICATE_DATA.backers);
+        const audit = this.getRandom(LOFT_SYNDICATE_DATA.audits);
+        const tags = this.getRandom(LOFT_SYNDICATE_DATA.tags);
 
         return {
             name,
@@ -158,40 +138,38 @@ class StartupGenerator {
             backers,
             audit,
             tags,
-            source: '⚡ Quantum Chaos Core (Offline)'
+            source: 'Квантовый Аналитический Модуль (Offline)'
         };
     }
 
     async generateNeural() {
         if (!this.apiKey) {
-            throw new Error('API ключ Gemini не установлен');
+            throw new Error('Ключ Gemini API не настроен в хранилище');
         }
 
-        const prompt = `Ты — сумасшедший гениальный Web3/AI венчурный фаундер.
-Придумай 1 абсолютно бредовый, уморительный, абсурдный стартап на стыке Web3, крипты, AI и российской повседневности (шаурма, гаражи, коты, бабушки, депрессия, маршрутки, мемкоины, стейкинг).
+        const prompt = `Ты — старший партнер элитного швейцарского венчурного фонда Loft Capital. 
+Твоя задача: составить ультра-серьезный, деловой, институциональный инвестиционный меморандум для АБСУРДНОГО, смешного Web3/AI стартапа на стыке технологий и российского быта (шаурма, бабушки, гаражи, сон, депрессия, маршрутки).
+Тон: подчеркнуто серьезный, сухой, деловой и пафосный финансовый язык, отчего идея звучит еще смешнее.
 
-Верни СТРОГО валидный JSON БЕЗ каких-либо пояснений, markdown кавычек или форматирования \`\`\`json.
-Формат структуры:
+Верни СТРОГО валидный JSON без markdown форматирования:
 {
-  "name": "Название стартапа (на английском или суржике с DAO/L2/AI)",
+  "name": "Название стартапа (на английском/суржике с Consortium/L2/Capital)",
   "ticker": "$ТИКЕР",
-  "stage": "Стадия и абсурдная оценка (например: PRE-SEED: $420M FDV)",
-  "tagline": "«Хлесткий смешной слоган стартапа в кавычках»",
-  "problem": "Какую абсурдную проблему решает стартап (2 предложения)",
-  "solution": "Технологически напыщенное бредовое решение со смарт-контрактами и AI (2 предложения)",
+  "stage": "Институциональная оценка (например: SERIES A: $120,000,000 POST-MONEY VALUATION)",
+  "tagline": "«Афористичный деловой слоган в кавычках»",
+  "problem": "Институциональная формулировка абсурдной проблемы (2 предложения на деловом языке)",
+  "solution": "Высокопарное решение на блокчейне, ZK-Rollups и AI (2 предложения)",
   "tokenomics": [
-    {"label": "Фаундерам на Lambo", "percent": 65},
-    {"label": "Маркетинг у инфлюенсеров", "percent": 25},
-    {"label": "Аирдроп работягам", "percent": 10}
+    {"label": "Основателям на активы в Дубае", "percent": 65},
+    {"label": "Институциональный маркетинг", "percent": 25},
+    {"label": "Аирдроп розничным участникам", "percent": 10}
   ],
-  "backers": "Название смешного фонда или инвестора",
-  "audit": "Смешной статус аудита смарт-контракта",
-  "tags": ["#Web3", "#Meme", "#AI", "#DeFi"]
+  "backers": "Название солидного, но смешного фонда/инвестора",
+  "audit": "Статус аудита на деловом языке",
+  "tags": ["#PrivateEquity", "#Web3", "#Institutional"]
 }`;
 
         const url = `https://generativelanguage.googleapis.com/v1beta/models/${this.modelName}:generateContent?key=${this.apiKey}`;
-        
-        // Timeout promise
         const controller = new AbortController();
         const timeoutId = setTimeout(() => controller.abort(), 12000);
 
@@ -201,11 +179,9 @@ class StartupGenerator {
                 headers: { 'Content-Type': 'application/json' },
                 signal: controller.signal,
                 body: JSON.stringify({
-                    contents: [{
-                        parts: [{ text: prompt }]
-                    }],
+                    contents: [{ parts: [{ text: prompt }] }],
                     generationConfig: {
-                        temperature: 1.0,
+                        temperature: 0.95,
                         responseMimeType: "application/json"
                     }
                 })
@@ -215,25 +191,21 @@ class StartupGenerator {
 
             if (!response.ok) {
                 const errText = await response.text();
-                throw new Error(`Gemini API error [${response.status}]: ${errText}`);
+                throw new Error(`Gemini API error: ${errText}`);
             }
 
             const data = await response.json();
             const rawText = data?.candidates?.[0]?.content?.parts?.[0]?.text;
-            if (!rawText) throw new Error('Пустой ответ от нейросети');
-
-            // Clean json if wrapped in backticks
             const cleaned = rawText.replace(/```json/g, '').replace(/```/g, '').trim();
             const parsed = JSON.parse(cleaned);
 
-            parsed.source = '🧠 Gemini 2.5 Flash Neural Engine';
+            parsed.source = 'Нейросетевой Меморандум Gemini 2.5 Flash';
             return parsed;
         } catch (err) {
             clearTimeout(timeoutId);
-            console.warn('Neural generation failed, falling back to Quantum:', err);
+            console.warn('Neural generation error, fallback to Quantum:', err);
             const fallback = this.generateQuantum();
-            fallback.source = `⚡ Quantum Fallback (${err.message.includes('Failed to fetch') || err.message.includes('503') ? 'Регион/Сеть заблокирована' : 'Автопереключение'})`;
-            fallback.neuralError = err.message;
+            fallback.source = 'Квантовый Модуль (Резервный Режим)';
             return fallback;
         }
     }
