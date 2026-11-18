@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DELUSION.DAO — Генератор Бредовых Web3 Стартапов</title>
+    <meta name="description" content="Интерактивный Web3 генератор абсурдных стартап-идей с 3D-графикой, отслеживанием курсора и интеграцией Gemini AI">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🚀</text></svg>">
+
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- External Libraries: Three.js and Canvas Confetti -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <!-- 3D WebGL Canvas Layer -->
+    <div id="webgl-canvas-container"></div>
+
+    <!-- Scanline Cyber Overlay -->
+    <div class="scanlines"></div>
+
+    <!-- Mouse Tracking Cursor Glow -->
+    <div id="cursor-glow" class="cursor-glow"></div>
+
+    <div class="app-container">
+        <!-- Top Live Crypto Ticker -->
+        <div class="ticker-bar">
+            <div class="ticker-track">
+                <span class="ticker-item"><span class="sym">$BABKA</span> <span class="up">▲ +420.69%</span></span>
+                <span class="ticker-item"><span class="sym">$SHAU</span> <span class="down">▼ -13.37%</span></span>
+                <span class="ticker-item"><span class="sym">$HAMSTER</span> <span class="up">▲ +1337.0%</span></span>
+                <span class="ticker-item"><span class="sym">$SLEEP</span> <span class="up">▲ +69.4%</span></span>
+                <span class="ticker-item"><span class="sym">$GOPNIK</span> <span class="up">▲ +888.0%</span></span>
+                <span class="ticker-item"><span class="sym">$KVAS</span> <span class="up">▲ +228.5%</span></span>
+                <span class="ticker-item"><span class="sym">$DRIST</span> <span class="up">▲ +9999%</span></span>
+                <span class="ticker-item"><span class="sym">$PELMEN</span> <span class="up">▲ +322.0%</span></span>
+                <span class="ticker-item"><span class="sym">$LADA</span> <span class="down">▼ -0.04%</span></span>
+                <span class="ticker-item"><span class="sym">$ZXC</span> <span class="up">▲ +1000x</span></span>
+                <!-- Repeat for seamless marquee -->
+                <span class="ticker-item"><span class="sym">$BABKA</span> <span class="up">▲ +420.69%</span></span>
+                <span class="ticker-item"><span class="sym">$SHAU</span> <span class="down">▼ -13.37%</span></span>
+                <span class="ticker-item"><span class="sym">$HAMSTER</span> <span class="up">▲ +1337.0%</span></span>
+                <span class="ticker-item"><span class="sym">$SLEEP</span> <span class="up">▲ +69.4%</span></span>
+                <span class="ticker-item"><span class="sym">$GOPNIK</span> <span class="up">▲ +888.0%</span></span>
+                <span class="ticker-item"><span class="sym">$KVAS</span> <span class="up">▲ +228.5%</span></span>
+                <span class="ticker-item"><span class="sym">$DRIST</span> <span class="up">▲ +9999%</span></span>
+                <span class="ticker-item"><span class="sym">$PELMEN</span> <span class="up">▲ +322.0%</span></span>
+                <span class="ticker-item"><span class="sym">$LADA</span> <span class="down">▼ -0.04%</span></span>
+                <span class="ticker-item"><span class="sym">$ZXC</span> <span class="up">▲ +1000x</span></span>
+            </div>
+        </div>
+
+        <!-- Header -->
+        <header class="header">
+            <div class="brand">
+                <div class="brand-logo">🚀</div>
+                <div class="brand-text">
+                    <h1>DELUSION.DAO</h1>
+                    <span class="brand-badge">WEB3 CORE v4.20</span>
+                </div>
+            </div>
+
+            <div class="nav-actions">
+                <button id="btn-audio" class="btn-icon" title="Звуковые эффекты">🔊</button>
+                <button id="btn-history" class="btn-icon" title="Сохраненные стартапы">❤️</button>
+                <button id="btn-settings" class="btn-icon" title="Настройки Gemini AI">⚙️</button>
+                <button id="btn-wallet" class="btn-wallet">
+                    <span class="wallet-dot"></span>
+                    <span id="wallet-text">Connect Wallet</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="hero-tag">⚡ NEXT-GEN DECENTRALIZED ABSURDITY</div>
+            <h2 class="hero-title">Генератор Бредовых Стартапов 3.0</h2>
+            <p class="hero-subtitle">
+                Инвестируй в идеи, которые даже твоя бабушка посчитает скамом. Оценка от $69M до сингулярности.
+            </p>
+
+            <!-- Mode Switcher -->
+            <div class="mode-switch-wrapper">
+                <button class="mode-btn active" data-mode="quantum">⚡ Квантовый Движок</button>
+                <button class="mode-btn" data-mode="neural">🧠 Gemini AI Нейросеть</button>
+            </div>
+
+            <!-- Big Generate Button -->
+            <button id="btn-generate" class="btn-generate">
+                <span>🎲 СГЕНЕРИРОВАТЬ СТАРТАП</span>
+                <div class="btn-glow"></div>
+            </button>
+
+            <!-- 3D Tilt Card Wrapper -->
+            <div id="card-wrapper" class="card-wrapper">
+                <article id="startup-card" class="startup-card">
+                    <!-- Card Header -->
+                    <div class="card-header">
+                        <div class="startup-title-group">
+                            <span id="startup-name" class="startup-name">KebabChain 3.0</span>
+                            <span id="startup-ticker" class="startup-ticker">$KEBAB</span>
+                        </div>
+                        <span id="startup-stage" class="startup-stage">🔥 PRE-SEED: $69,420,000 FDV</span>
+                    </div>
+
+                    <!-- Tagline -->
+                    <p id="startup-tagline" class="startup-tagline">
+                        «Если это выглядит как скам, звучит как скам и пахнет шаурмой — значит, это будущее финансов.»
+                    </p>
+
+                    <!-- Pitch Details Grid -->
+                    <div class="pitch-grid">
+                        <div class="pitch-box">
+                            <div class="pitch-label">🎯 Проблема</div>
+                            <p id="pitch-problem" class="pitch-text">
+                                Загрузка...
+                            </p>
+                        </div>
+
+                        <div class="pitch-box">
+                            <div class="pitch-label">💡 Решение</div>
+                            <p id="pitch-solution" class="pitch-text">
+                                Загрузка...
+                            </p>
+                        </div>
+
+                        <div class="pitch-box full-width">
+                            <div class="pitch-label">📊 Токеномика ($TICKER)</div>
+                            <div class="tokenomics-container">
+                                <div id="tokenomics-bar" class="tokenomics-bar"></div>
+                                <div id="tokenomics-legend" class="tokenomics-legend"></div>
+                            </div>
+                        </div>
+
+                        <div class="pitch-box">
+                            <div class="pitch-label">👑 Ведущие Инвесторы</div>
+                            <p id="pitch-backers" class="pitch-text">
+                                Andreessen Horowitz's Hamster
+                            </p>
+                        </div>
+
+                        <div class="pitch-box">
+                            <div class="pitch-label">🛡️ Аудит Смарт-Контракта</div>
+                            <p id="pitch-audit" class="pitch-text">
+                                100% Уязвимый (CertiK No-Cap)
+                            </p>
+                        </div>
+
+                        <div class="pitch-box full-width">
+                            <div class="pitch-label">🏷️ Категории &amp; Стек</div>
+                            <div id="pitch-tags" class="tags-list"></div>
+                        </div>
+                    </div>
+
+                    <!-- Action Footer -->
+                    <div class="card-actions">
+                        <div id="source-badge" class="source-badge">
+                            <span>⚡</span> Quantum Chaos Core
+                        </div>
+                        <div class="action-buttons-group">
+                            <button id="btn-fav" class="btn-secondary">🤍 В избранное</button>
+                            <button id="btn-copy" class="btn-secondary">📋 Скопировать Питч</button>
+                            <button id="btn-share-tg" class="btn-secondary">✈️ TG</button>
+                            <button id="btn-share-x" class="btn-secondary">✖️ X</button>
+                            <button id="btn-invest" class="btn-invest">💰 Инвестировать</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </main>
+    </div>
+
+    <!-- Modals -->
+
+    <!-- Wallet Connect Modal -->
+    <div id="modal-wallet" class="modal-backdrop">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">🦊 Подключить Web3 Кошелек</h3>
+                <button class="btn-close">&times;</button>
+            </div>
+            <div class="wallet-option-list">
+                <div class="wallet-option">
+                    <div class="wallet-opt-left">
+                        <span class="wallet-opt-icon">🦊</span>
+                        <span>MetaMask</span>
+                    </div>
+                    <span class="brand-badge">POPULAR</span>
+                </div>
+                <div class="wallet-option">
+                    <div class="wallet-opt-left">
+                        <span class="wallet-opt-icon">👻</span>
+                        <span>Phantom (Solana)</span>
+                    </div>
+                    <span class="brand-badge">FAST</span>
+                </div>
+                <div class="wallet-option">
+                    <div class="wallet-opt-left">
+                        <span class="wallet-opt-icon">🐰</span>
+                        <span>Rabby Wallet</span>
+                    </div>
+                    <span class="brand-badge">DEGEN</span>
+                </div>
+                <div class="wallet-option">
+                    <div class="wallet-opt-left">
+                        <span class="wallet-opt-icon">📝</span>
+                        <span>Сид-фраза на салфетке</span>
+                    </div>
+                    <span class="brand-badge">SECURE 100%</span>
+                </div>
+            </div>
+            <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center;">
+                Безопасное Web3 соединение с тестовой сетью Delusion Testnet. Ваши реальные средства в безопасности.
+            </p>
+        </div>
+    </div>
+
+    <!-- Invest Simulation Modal -->
+    <div id="modal-invest" class="modal-backdrop">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">💰 Инвестировать в Стартап</h3>
+                <button class="btn-close">&times;</button>
+            </div>
+            <div style="margin-bottom: 18px;">
+                <div style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 6px;">Сумма инвестиций:</div>
+                <div style="display: flex; gap: 8px;">
+                    <input type="text" class="cyber-input" value="10.0 ETH" style="flex: 1;" readonly>
+                    <span style="display: flex; align-items: center; font-family: var(--font-mono); font-weight: 700; color: var(--neon-cyan);">~ $34,200</span>
+                </div>
+            </div>
+            <div style="background: rgba(0,0,0,0.3); border-radius: 8px; padding: 12px; margin-bottom: 18px; font-family: var(--font-mono); font-size: 0.78rem; line-height: 1.6;">
+                <div>Токен распределения: <span id="invest-token-sym" style="color: var(--neon-green);">$KEBAB</span></div>
+                <div>Расчетный Gas Fee: <span style="color: var(--neon-gold);">420 GWEI ($0.69)</span></div>
+                <div>Вестинг период: <span>99 лет (без права выкупа)</span></div>
+                <div>Вероятность Rug Pull: <span style="color: var(--neon-pink);">99.9%</span></div>
+            </div>
+            <button id="btn-confirm-invest" class="btn-generate" style="width: 100%; justify-content: center; margin-bottom: 0;">
+                Подтвердить транзакцию
+            </button>
+        </div>
+    </div>
+
+    <!-- Gemini AI Settings Modal -->
+    <div id="modal-settings" class="modal-backdrop">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">⚙️ Настройки Gemini AI</h3>
+                <button class="btn-close">&times;</button>
+            </div>
+            <div class="api-input-group">
+                <label for="input-api-key">Google Gemini API Key:</label>
+                <input id="input-api-key" type="password" class="cyber-input" placeholder="AQ.Ab... или AIza...">
+            </div>
+            <p style="font-size: 0.76rem; color: var(--text-muted); line-height: 1.4; margin-bottom: 18px;">
+                🔒 <strong>Безопасность:</strong> Ключ сохраняется исключительно в вашем браузере (LocalStorage) и отправляется напрямую на серверы Google AI. Он никогда не сохраняется в публичном коде сайта.
+            </p>
+            <button id="btn-save-key" class="btn-generate" style="width: 100%; justify-content: center; margin-bottom: 0;">
+                Сохранить ключ
+            </button>
+        </div>
+    </div>
+
+    <!-- History / Favorites Modal -->
+    <div id="modal-history" class="modal-backdrop">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">❤️ Избранные Стартапы</h3>
+                <button class="btn-close">&times;</button>
+            </div>
+            <div id="history-list" class="wallet-option-list" style="max-height: 350px; overflow-y: auto;">
+                <!-- Generated items dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notifications Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Application Scripts -->
+    <script src="audio.js"></script>
+    <script src="three-scene.js"></script>
+    <script src="generator.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
